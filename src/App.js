@@ -69,10 +69,8 @@ function App() {
                   Some quick example text to build on the card title and make up
                   the bulk of the card's content.
                 </p>
-                <div className="row">
-                  <p>Ready in Minutes</p>
+                <p>Ready in Minutes</p>
                 <a href="#" className="btn btn-primary">View Recipe</a>
-                </div>
               </div>
             </div>
             </div>
@@ -86,10 +84,8 @@ function App() {
                   Some quick example text to build on the card title and make up
                   the bulk of the card's content.
                 </p>
-                <div className="row">
-                  <p>Ready in Minutes</p>
+                <p>Ready in Minutes</p>
                 <a href="#" className="btn btn-primary">View Recipe</a>
-                </div>
               </div>
             </div>
             </div>
@@ -103,10 +99,8 @@ function App() {
                   Some quick example text to build on the card title and make up
                   the bulk of the card's content.
                 </p>
-                <div className="row">
                   <p>Ready in Minutes</p>
                 <a href="#" className="btn btn-primary">View Recipe</a>
-                </div>
               </div>
             </div>
             </div>
