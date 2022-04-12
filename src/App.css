@@ -1,11 +1,29 @@
-.App {
-  text-align: center;
+ #root {
+  background: linear-gradient(#F7EEEE, #FFFFFF);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.logo {
+  padding-top: 24px;
+  padding-bottom: 24px;
+  height: 96px;
 }
+
+.logo img {
+  display: block;
+  height: 72px;
+  pointer-events: none;
+  margin: auto;
+}
+
+
+
+
+
+/* .btn-primary:hover {
+	color: #fff;
+	background-color: #FA0335;
+	border-color: #f84165;
+} */
 
 .search {
   background-color: #d4d4d4;
