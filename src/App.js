@@ -1,11 +1,13 @@
-import logo from "./logo.svg";
+import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
 function App() {
   return (
     <main className="container">
-      <h1 className="text-center">Recipe Finder</h1>
+      <div className="logo">
+      <img src={require('./logo.png')} />
+      </div>
       <div className="search">
         <div className="row">
           <div className="input-group col">
@@ -27,6 +29,14 @@ function App() {
         </div>
         <div className="row">
           <h5 className="col">Diet</h5>
+          <div class="container">
+            <div className="row row-cols-auto">
+              <div className="col"><span className="badge rounded-pill bg-primary">Primary</span></div>
+              <div className="col"><span className="badge rounded-pill bg-primary">Primary</span></div>
+              <div className="col"><span className="badge rounded-pill bg-primary">Primary</span></div>
+              <div className="col"><span className="badge rounded-pill bg-primary">Primary</span></div>
+            </div>
+          </div>
         </div>
         <div className="row">
           <h5 className="col">Intollerances</h5>
@@ -46,7 +56,7 @@ function App() {
       </div>
 
       {/* temporary spot to work on card formatting */}
-
+      
       <div className="container">
         <div className="row">
           <div className="col">
