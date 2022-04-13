@@ -1,60 +1,50 @@
-import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
+import InputGroup from "./components/InputGroup"
+import React, { useState } from "react";
 
 function App() {
+  const [queryValue, setQueryValue] = useState("");
+  const [cuisineValue, setCuisineValue] = useState("");
+  const [dietValue, setDietValue] = useState("");
+  const [intolerancesValue, setIntolerancesValue] = useState("");
+  const [includeIngredientsValue, setIncludeIngredientsValue] = useState("");
+  const [excludeIngredientsValue, setExcludeIngredientsValue] = useState("");
+  const [maxReadyTimeValue, setMaxReadyTimeValue] = useState("");
+  const [recipesResults, setRecipesResults] = useState([]);
+  const [noResults, setNoResults] = useState(false);
+
   return (
     <main className="container">
       <div className="logo">
       <img src={require('./logo.png')} />
       </div>
-      <div className="search">
-        <div className="row">
-          <div className="input-group col">
-            <input
-              className="form-control"
-              type="text"
-              placeholder="Find ingredient"
-            />
-            <button type="button" className="btn btn-primary">
-            Search
-          </button>
-          </div>
-        </div>
-        <div className="row">
-          <h5 className="col">Pantry Items</h5>
-        </div>
-        <div className="row">
-          <h5 className="col">Cusines</h5>
-        </div>
-        <div className="row">
-          <h5 className="col">Diet</h5>
-          <div class="container">
-            <div className="row row-cols-auto">
-              <div className="col"><span className="badge rounded-pill bg-primary">Primary</span></div>
-              <div className="col"><span className="badge rounded-pill bg-primary">Primary</span></div>
-              <div className="col"><span className="badge rounded-pill bg-primary">Primary</span></div>
-              <div className="col"><span className="badge rounded-pill bg-primary">Primary</span></div>
-            </div>
-          </div>
-        </div>
-        <div className="row">
-          <h5 className="col">Intollerances</h5>
-        </div>
-      </div>
-      <div className="searchbuttons">
-      <div className="row">
-        <output className="d-flex justify-content-end">
-          <button type="button" className="btn btn-outline-secondary">
-            Reset
-          </button>
-          <button type="button" className="btn btn-primary">
-            Find Recipes
-          </button>
-        </output>
-      </div>
-      </div>
 
+      <InputGroup>
+        setQueryValue={setQueryValue}
+        queryValue={queryValue}
+
+        setCuisineValue={setCuisineValue}
+        cuisineValue={cuisineValue}
+
+        setDietValue={setDietValue}
+        dietValue={dietValue}
+
+        setIntolerancesValue={setIntolerancesValue}
+        intolerancesValue={intolerancesValue}
+
+        setIncludeIngredientsValue={setIncludeIngredientsValue}
+        includeIngredientsValue={includeIngredientsValue}
+
+        setExcludeIngredientsValue={setExcludeIngredientsValue}
+        excludeIngredientsValue={excludeIngredientsValue}
+
+        setMaxReadyTimeValue={setMaxReadyTimeValue}
+        maxReadyTimeValue={maxReadyTimeValue}
+
+        setRecipesResults = {setRecipesResults}
+        setNoResults = {setNoResults}
+      </InputGroup>
       {/* temporary spot to work on card formatting */}
       
       <div className="container">
