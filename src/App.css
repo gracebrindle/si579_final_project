@@ -1,6 +1,6 @@
  #root {
   /* background: linear-gradient(#F7EEEE, #FFFFFF); */
-  background: #F7EEEE;
+  /* background: #F6F2F1; */
 }
 
 .logo {
@@ -20,14 +20,14 @@
 
 .btn-primary {
 	color: #fff;
-	background-color: #EB4B43;
-	border-color: #e9706a;
+	background-color: #ED6C5B;
+	border-color: #ED6C5B;
 }
 
 .btn-primary:hover {
 	color: #fff;
-	background-color: #CA403A;
-	border-color: #EB4B43;
+	background-color: #CC5D4E;
+	border-color: #CC5D4E;
 }
 
 .search {
