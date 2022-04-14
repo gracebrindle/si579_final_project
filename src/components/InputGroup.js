@@ -69,36 +69,15 @@ const InputGroup = (props) => {
       </div>
 
       <div className="row">
-        <h5 className="col">Pantry Items</h5>
+        <h5 className="d-flex justify-content-start">Pantry Items</h5>
+        <h6 className="d-flex justify-content-end">Clear</h6>
       </div>
+            <div className="col">
+            <button type="button" className="btn btn-primary btn-sm">Small button <button type="button" className="close" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button></button>
+            </div>
 
-      <div className="row">
-        <h5 className="col">Cuisines</h5>
-      </div>
-
-      <div className="row">
-        <h5 className="col">Diet</h5>
-        <div className="container">
-          <div className="row row-cols-auto">
-            <div className="col">
-              <span className="btn btn-outline-secondary btn-sm">Primary</span>
-            </div>
-            <div className="col">
-              <span className="badge rounded-pill bg-primary">Primary</span>
-            </div>
-            <div className="col">
-              <span className="badge rounded-pill bg-primary">Primary</span>
-            </div>
-            <div className="col">
-              <span className="badge rounded-pill bg-primary">Primary</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="row">
-        <h5 className="col">Intolerances</h5>
-      </div>
 
       <div className="searchbuttons">
         <div className="d-grid gap-2 d-md-flex justify-content-md-end">
