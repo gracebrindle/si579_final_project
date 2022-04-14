@@ -63,15 +63,15 @@ const InputGroup = (props) => {
             placeholder="Find ingredient"
           />
           <button type="button" className="btn btn-primary">
-            Search
+            Add Ingredient
           </button>
         </div>
       </div>
+      <div className="d-flex flex-row">
+      <div className="d-flex justify-content-start"><h5>Pantry Items</h5></div>
+      <div className="d-flex justify-content-end"><h6>Clear</h6></div>
 
-      <div className="row">
-        <h5 className="d-flex justify-content-start">Pantry Items</h5>
-        <h6 className="d-flex justify-content-end">Clear</h6>
-      </div>
+    </div>
             <div className="col">
             <button type="button" className="btn btn-primary btn-sm">Small button <button type="button" className="close" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
