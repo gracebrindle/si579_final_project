@@ -15,8 +15,8 @@ function App() {
   const [noResults, setNoResults] = useState(false);
 
   return (
-    <main className="container">
-      <div className="logo">
+    <main>
+      <div className="d-flex justify-content-center logo">
       <img src={require('./logo.png')} />
       </div>
 
@@ -46,9 +46,8 @@ function App() {
         setNoResults = {setNoResults}
       </InputGroup>
       {/* temporary spot to work on card formatting */}
-      
-      <div className="container">
-        <div className="row">
+      <div className="mt-5 container">
+      <div className="row row-cols-3">
           <div className="col">
             <div className="card">
               <img src="https://www.eatthis.com/wp-content/uploads/sites/4/2019/06/deep-dish-pizza-chicago.jpg"

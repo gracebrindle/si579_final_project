@@ -67,25 +67,82 @@ const InputGroup = (props) => {
           </button>
         </div>
       </div>
-      <div className="d-flex flex-row">
-      <div className="d-flex justify-content-start"><h5>Pantry Items</h5></div>
-      <div className="d-flex justify-content-end"><h6>Clear</h6></div>
 
-    </div>
-            <div className="col">
-            <button type="button" className="btn btn-primary btn-sm">Small button <button type="button" className="close" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button></button>
-            </div>
+      <div className="p-2 d-flex bd-highlight">
+        <div className="me-auto bd-highlight">
+          <h5>Pantry Items</h5>
+        </div>
+        <div className="bd-highlight">
+          <h6>Clear</h6>
+        </div>
+      </div>
 
-
-      <div className="searchbuttons">
-        <div className="d-grid gap-2 d-md-flex justify-content-md-end">
-          <button className="btn btn-outline-secondary me-md-2" type="button">
-            Reset
+      <div className="p-2 mx-auto d-flex flex-wrap">
+        <button
+          type="button"
+          className="m-1 btn btn-primary btn-sm pantry-item"
+        >
+          Small button{" "}
+          <button type="button" className="close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
           </button>
+        </button>
+        <button
+          type="button"
+          className="m-1 btn btn-primary btn-sm pantry-item"
+        >
+          Small button{" "}
+          <button type="button" className="close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </button>
+        <button
+          type="button"
+          className="m-1 btn btn-primary btn-sm pantry-item"
+        >
+          Small button{" "}
+          <button type="button" className="close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </button>
+        <button
+          type="button"
+          className="m-1 btn btn-primary btn-sm pantry-item"
+        >
+          Small button{" "}
+          <button type="button" className="close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </button>
+        <button
+          type="button"
+          className="m-1 btn btn-primary btn-sm pantry-item"
+        >
+          Small button{" "}
+          <button type="button" className="close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </button>
+        <button
+          type="button"
+          className="m-1 btn btn-primary btn-sm pantry-item"
+        >
+          Small button{" "}
+          <button type="button" className="close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </button>
+      </div>
+
+      <div className="d-flex flex-row-reverse bd-highlight">
+        <div className="p-2 bd-highlight">
           <button className="btn btn-primary" type="button">
             Find Recipes
+          </button>
+        </div>
+        <div className="p-2 bd-highlight">
+          <button className="btn btn-outline-secondary" type="button">
+            Reset
           </button>
         </div>
       </div>
