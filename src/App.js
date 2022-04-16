@@ -46,8 +46,7 @@ function App() {
         setNoResults = {setNoResults}
       </InputGroup>
       {/* temporary spot to work on card formatting */}
-      
-      <div className="container">
+      <div className="mt-5 container">
         <div className="row">
           <div className="col">
             <div className="card">
