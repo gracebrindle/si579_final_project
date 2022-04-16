@@ -141,7 +141,7 @@ const InputGroup = (props) => {
           </button>
         </div>
         <div className="p-2 bd-highlight">
-          <button className="btn btn-outline-secondary me-md-2" type="button">
+          <button className="btn btn-outline-secondary md-1" type="button">
             Reset
           </button>
         </div>
