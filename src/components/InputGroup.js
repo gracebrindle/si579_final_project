@@ -68,17 +68,53 @@ const InputGroup = (props) => {
         </div>
       </div>
 
-    <div className="d-flex bd-highlight mb-3">
-  <div className="me-auto p-2 bd-highlight"><h5>Pantry Items</h5></div>
-  <div className="p-2 bd-highlight"><h6>Clear</h6></div>
-</div>
+      <div className="p-2 d-flex bd-highlight mb-3">
+        <div className="me-auto bd-highlight">
+          <h5>Pantry Items</h5>
+        </div>
+        <div className="bd-highlight">
+          <h6>Clear</h6>
+        </div>
+      </div>
 
-            <div className="col">
-            <button type="button" className="btn btn-primary btn-sm">Small button <button type="button" className="close" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button></button>
-            </div>
-
+      <div className="p-2 d-flex flex-wrap">
+        <button type="button" className="m-1 btn btn-primary btn-sm pantry-item">
+          Small button{" "}
+          <button type="button" className="close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </button>
+        <button type="button" className="m-1 btn btn-primary btn-sm pantry-item">
+          Small button{" "}
+          <button type="button" className="close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </button>
+        <button type="button" className="m-1 btn btn-primary btn-sm pantry-item">
+          Small button{" "}
+          <button type="button" className="close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </button>
+        <button type="button" className="m-1 btn btn-primary btn-sm pantry-item">
+          Small button{" "}
+          <button type="button" className="close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </button>
+        <button type="button" className="m-1 btn btn-primary btn-sm pantry-item">
+          Small button{" "}
+          <button type="button" className="close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </button>
+        <button type="button" className="m-1 btn btn-primary btn-sm pantry-item">
+          Small button{" "}
+          <button type="button" className="close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </button>
+      </div>
 
       <div className="searchbuttons">
         <div className="d-grid gap-2 d-md-flex justify-content-md-end">

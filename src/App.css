@@ -75,4 +75,7 @@
   width: -moz-available;
 }
 
+.pantry-item {
+ justify-content: space-around;
+}
 
