@@ -47,7 +47,7 @@ function App() {
       </InputGroup>
       {/* temporary spot to work on card formatting */}
       <div className="mt-5 container">
-        <div className="row">
+      <div className="row row-cols-3">
           <div className="col">
             <div className="card">
               <img src="https://www.eatthis.com/wp-content/uploads/sites/4/2019/06/deep-dish-pizza-chicago.jpg"

@@ -77,7 +77,7 @@ const InputGroup = (props) => {
         </div>
       </div>
 
-      <div className="p-2 d-flex flex-wrap">
+      <div className="p-2 mx-auto d-flex flex-wrap">
         <button
           type="button"
           className="m-1 btn btn-primary btn-sm pantry-item"
@@ -141,7 +141,7 @@ const InputGroup = (props) => {
           </button>
         </div>
         <div className="p-2 bd-highlight">
-          <button className="btn btn-outline-secondary md-1" type="button">
+          <button className="btn btn-outline-secondary" type="button">
             Reset
           </button>
         </div>
