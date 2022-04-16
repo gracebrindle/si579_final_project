@@ -76,7 +76,7 @@
 
 
 @include media-breakpoint-up(md) { 
-  .row.col.col-sm- {
+  .row.col .col-sm- {
     grid-column: 2;
   }
 }
