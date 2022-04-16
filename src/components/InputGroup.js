@@ -68,7 +68,7 @@ const InputGroup = (props) => {
         </div>
       </div>
 
-      <div className="p-2 d-flex bd-highlight mb-3">
+      <div className="p-2 d-flex bd-highlight">
         <div className="me-auto bd-highlight">
           <h5>Pantry Items</h5>
         </div>
