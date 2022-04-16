@@ -78,37 +78,55 @@ const InputGroup = (props) => {
       </div>
 
       <div className="p-2 d-flex flex-wrap">
-        <button type="button" className="m-1 btn btn-primary btn-sm pantry-item">
+        <button
+          type="button"
+          className="m-1 btn btn-primary btn-sm pantry-item"
+        >
           Small button{" "}
           <button type="button" className="close" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </button>
-        <button type="button" className="m-1 btn btn-primary btn-sm pantry-item">
+        <button
+          type="button"
+          className="m-1 btn btn-primary btn-sm pantry-item"
+        >
           Small button{" "}
           <button type="button" className="close" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </button>
-        <button type="button" className="m-1 btn btn-primary btn-sm pantry-item">
+        <button
+          type="button"
+          className="m-1 btn btn-primary btn-sm pantry-item"
+        >
           Small button{" "}
           <button type="button" className="close" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </button>
-        <button type="button" className="m-1 btn btn-primary btn-sm pantry-item">
+        <button
+          type="button"
+          className="m-1 btn btn-primary btn-sm pantry-item"
+        >
           Small button{" "}
           <button type="button" className="close" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </button>
-        <button type="button" className="m-1 btn btn-primary btn-sm pantry-item">
+        <button
+          type="button"
+          className="m-1 btn btn-primary btn-sm pantry-item"
+        >
           Small button{" "}
           <button type="button" className="close" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </button>
-        <button type="button" className="m-1 btn btn-primary btn-sm pantry-item">
+        <button
+          type="button"
+          className="m-1 btn btn-primary btn-sm pantry-item"
+        >
           Small button{" "}
           <button type="button" className="close" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -116,13 +134,15 @@ const InputGroup = (props) => {
         </button>
       </div>
 
-      <div className="searchbuttons">
-        <div className="d-grid gap-2 d-md-flex justify-content-md-end">
-          <button className="btn btn-outline-secondary me-md-2" type="button">
-            Reset
-          </button>
+      <div className="d-flex flex-row-reverse bd-highlight">
+        <div className="p-2 bd-highlight">
           <button className="btn btn-primary" type="button">
             Find Recipes
+          </button>
+        </div>
+        <div className="p-2 bd-highlight">
+          <button className="btn btn-outline-secondary me-md-2" type="button">
+            Reset
           </button>
         </div>
       </div>

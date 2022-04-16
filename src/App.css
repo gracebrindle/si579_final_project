@@ -35,7 +35,7 @@
   border-radius: 4px;
 }
 
-.search, .searchbuttons {
+.search {
   max-width: 70%;
   margin: auto;
 }
@@ -75,7 +75,4 @@
   width: -moz-available;
 }
 
-.pantry-item {
- justify-content: space-around;
-}
 
