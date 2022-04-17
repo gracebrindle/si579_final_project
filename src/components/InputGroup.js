@@ -53,12 +53,15 @@ const InputGroup = (props) => {
     }
   };
 
+
   return (
     <div className="search">
       <div className="row">
         <div className="input-group col">
           <input
             className="form-control"
+            value={queryValue}
+            onChange={(event) => setQueryValue(event.target.value)}
             type="text"
             placeholder="Find ingredient"
           />
