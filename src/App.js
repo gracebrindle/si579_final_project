@@ -1,6 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import InputGroup from "./components/InputGroup"
+import Results from "./components/Results"
 import React, { useState } from "react";
 
 function App() {
@@ -12,7 +13,7 @@ function App() {
   const [excludeIngredientsValue, setExcludeIngredientsValue] = useState("");
   const [maxReadyTimeValue, setMaxReadyTimeValue] = useState("");
   const [recipesResults, setRecipesResults] = useState([]);
-  const [noResults, setNoResults] = useState(false);
+  const [noResults, setNoResults] = useState(true);
 
   return (
     <main className="container">
@@ -46,6 +47,7 @@ function App() {
         setNoResults = {setNoResults}
       </InputGroup>
       {/* temporary spot to work on card formatting */}
+<<<<<<< Updated upstream
       
       <div className="container">
         <div className="row">
@@ -94,6 +96,16 @@ function App() {
               </div>
             </div>
             </div>
+=======
+      <div className="mt-5 container">
+      <div className="row row-cols-3">
+
+        <Results>
+          noResults = {noResults}
+          recipesResults = {recipesResults}
+        </Results>
+
+>>>>>>> Stashed changes
         </div>
       </div>
     </main>

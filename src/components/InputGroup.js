@@ -1,4 +1,5 @@
 import React from "react";
+import './InputGroup.css'
 
 const InputGroup = (props) => {
     // Define props that were passed in through App
