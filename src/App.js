@@ -1,5 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
+import CardSkeleton from "./components/CardSkeleton";
 import InputGroup from "./components/InputGroup"
 import React, { useState } from "react";
 
@@ -45,13 +46,15 @@ function App() {
         setRecipesResults = {setRecipesResults}
         setNoResults = {setNoResults}
       />
+
       {/* temporary spot to work on card formatting */}
       <div className="mt-5 container">
       <div className="row row-cols-3">
           <div className="col">
-            <div className="card">
-              <img src="https://www.eatthis.com/wp-content/uploads/sites/4/2019/06/deep-dish-pizza-chicago.jpg"
-                className="card-img-top" alt="..."/>
+            <CardSkeleton />
+          <div className="card">
+          <img src="https://www.eatthis.com/wp-content/uploads/sites/4/2019/06/deep-dish-pizza-chicago.jpg"
+                className="card-img-top skeleton" alt="..."/>
               <div className="card-body">
               <h5 className="card-title">Recipe title</h5>
                 <p className="card-text">
