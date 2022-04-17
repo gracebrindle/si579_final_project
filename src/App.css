@@ -6,7 +6,6 @@
 .logo {
   padding-top: 24px;
   padding-bottom: 24px;
-  height: 96px;
 }
 
 .logo img {
@@ -29,34 +28,32 @@
 }
 
 .search {
-  background-color: #d4d4d4;
+  background-color: #f0f0f0;
   border-radius: 4px;
 }
 
-.search, .searchbuttons {
+.search {
   max-width: 70%;
   margin: auto;
 }
 
-
-/* Card Styling */
-.card-img-top {
-  width: 100%;
-  height: 15vw;
-  object-fit: cover;
+.btn.btn-primary.btn-sm {
+  background-color: #ED6C5B;
+	border-color: #ED6C5B;
+  border-radius: 50rem;
 }
 
-.card {
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.1));
+.btn.btn-primary.btn-sm .close {
+  border: none;
+  background-color: #ED6C5B;
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: 600;
 }
 
-.card:hover {
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.3));
+@include media-breakpoint-up(md) { 
+  .row.col .col-sm- {
+    grid-column: 2;
+  }
 }
-
-.card-body a.btn.btn-primary {
-  width: -webkit-fill-available;
-  width: -moz-available;
-}
-
 
