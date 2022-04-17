@@ -54,6 +54,9 @@ const InputGroup = (props) => {
   };
 
 
+
+
+
   return (
     <div className="search">
       <div className="row">
@@ -64,7 +67,16 @@ const InputGroup = (props) => {
             onChange={(event) => setQueryValue(event.target.value)}
             type="text"
             placeholder="Find ingredient"
+            list="datalistOptions"
           />
+          <datalist id="datalistOptions">
+          <option value="San Francisco" />
+          <option value="New York" />
+          <option value="Seattle" />
+          <option value="Los Angeles" />
+          <option value="Chicago" />
+        </datalist>
+ 
           <button type="button" className="btn btn-primary" onClick={SearchRecipes}>
             Add Ingredient
           </button>
