@@ -3,6 +3,7 @@ import "./App.css";
 import CardSkeleton from "./components/CardSkeleton";
 import CardRecipe from "./components/CardRecipe";
 import InputGroup from "./components/InputGroup"
+import Results from "./components/Results"
 import React, { useState } from "react";
 
 function App() {
@@ -14,7 +15,7 @@ function App() {
   const [excludeIngredientsValue, setExcludeIngredientsValue] = useState("");
   const [maxReadyTimeValue, setMaxReadyTimeValue] = useState("");
   const [recipesResults, setRecipesResults] = useState([]);
-  const [noResults, setNoResults] = useState(false);
+  const [noResults, setNoResults] = useState(true);
 
   return (
     <main>
@@ -49,6 +50,9 @@ function App() {
       />
 
       {/* temporary spot to work on card formatting */}
+      
+      <div className="container">
+        <div className="row">
       <div className="mt-5 container">
       <div className="row row-cols-3">
           <div className="col">
