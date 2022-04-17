@@ -1,7 +1,7 @@
 import React from "react";
-import "./RecipeCard.css";
+import "./CardRecipe.css";
 
-const RecipeCard = (props) => {
+const CardRecipe = (props) => {
   return (
     <div className="card">
       <img
@@ -24,4 +24,4 @@ const RecipeCard = (props) => {
   );
 };
 
-export default RecipeCard;
+export default CardRecipe;

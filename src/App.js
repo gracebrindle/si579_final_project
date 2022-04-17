@@ -1,7 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import CardSkeleton from "./components/CardSkeleton";
-import RecipeCard from "./components/RecipeCard";
+import CardRecipe from "./components/CardRecipe";
 import InputGroup from "./components/InputGroup"
 import React, { useState } from "react";
 
@@ -55,10 +55,10 @@ function App() {
             <CardSkeleton />
             </div>
             <div className="col">
-            <RecipeCard />
+            <CardRecipe />
             </div>
             <div className="col">
-            <RecipeCard />
+            <CardRecipe />
             </div>
         </div>
       </div>
