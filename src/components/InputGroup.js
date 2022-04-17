@@ -65,7 +65,7 @@ const InputGroup = (props) => {
             type="text"
             placeholder="Find ingredient"
           />
-          <button type="button" className="btn btn-primary">
+          <button type="button" className="btn btn-primary" onClick={SearchRecipes}>
             Add Ingredient
           </button>
         </div>
