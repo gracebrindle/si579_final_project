@@ -21,6 +21,7 @@ const InputGroup = (props) => {
     setNoResults,
   } = props;
 
+
   // Fetch rhymes from API using the input values
   const SearchRecipes = () => {
     fetch(
@@ -53,16 +54,39 @@ const InputGroup = (props) => {
     }
   };
 
+
+  // Example code for auto completion for finding ingriendients. 
+  // const SelectionsExample = (props) => (
+  //   <Typeahead
+  //     clearButton
+  //     defaultSelected={options.slice(0, 1)}
+  //     id="selections-example"
+  //     labelKey="name"
+  //     onInputChange={(text, e) => { console.log(text, e); }}
+  //     options={options}
+  //     placeholder="Choose a state..."
+  //   />
+  // );
+  
+
   return (
     <div className="search">
       <div className="row">
         <div className="input-group col">
           <input
             className="form-control"
+            value={queryValue}
+            onChange={(event) => setQueryValue(event.target.value)}
             type="text"
             placeholder="Find ingredient"
           />
-          <button type="button" className="btn btn-primary">
+
+
+          <button
+            type="button"
+            className="btn btn-primary"
+            onClick={SearchRecipes}
+          >
             Add Ingredient
           </button>
         </div>
