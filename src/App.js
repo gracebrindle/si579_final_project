@@ -20,7 +20,7 @@ function App() {
       <img src={require('./logo.png')} />
       </div>
 
-      <InputGroup>
+      <InputGroup
         setQueryValue={setQueryValue}
         queryValue={queryValue}
 
@@ -44,7 +44,7 @@ function App() {
 
         setRecipesResults = {setRecipesResults}
         setNoResults = {setNoResults}
-      </InputGroup>
+      />
       {/* temporary spot to work on card formatting */}
       <div className="mt-5 container">
       <div className="row row-cols-3">
