@@ -18,6 +18,11 @@
   border-radius: .2rem;
 }
 
+.skeleton-card-text {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
 .skeleton-body-text {
   width: 100%;
   height: 0.5rem;

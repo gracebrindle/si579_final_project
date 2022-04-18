@@ -13,7 +13,7 @@ const CardSkeleton = (props) => {
       <img className="card-img-top skeleton" />
       <div className="card-body">
         <div className="skeleton skeleton-title-text"></div>
-        <p className="card-text">
+        <div className="skeleton-card-text">
           <div
             className="skeleton skeleton-body-text"
             style={{ width: "85%" }}>
@@ -26,7 +26,7 @@ const CardSkeleton = (props) => {
             className="skeleton skeleton-body-text"
             style={{ width: "70%" }}>
           </div>
-        </p>
+        </div>
         <div
             className="skeleton skeleton-time-text"
             style={{ width: "40%" }}>
