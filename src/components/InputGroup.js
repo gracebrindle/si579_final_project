@@ -76,7 +76,7 @@ const InputGroup = (props) => {
 
   const keyDownHandler = (e) => {
     if (e.key === "Enter") {
-      addIngredient();
+      addIngredient(ingredient);
     }
   };
 
@@ -103,6 +103,7 @@ const InputGroup = (props) => {
             className="form-control"
             value={ingredient}
             onChange={(event) => setIngredient(event.target.value)}
+            onKeyDown={keyDownHandler}
             type="text"
             placeholder="Find ingredient"
           />
