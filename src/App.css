@@ -1,4 +1,4 @@
- #root {
+#root {
   /* background: linear-gradient(#F7EEEE, #FFFFFF); */
   /* background: #F6F2F1; */
 }
@@ -15,26 +15,15 @@
   margin: auto;
 }
 
-.btn-primary {
-	color: #fff;
-	background-color: #ED6C5B;
-	border-color: #ED6C5B;
-}
-
-.btn-primary:hover {
-	color: #fff;
-	background-color: #CC5D4E;
-	border-color: #CC5D4E;
-}
-
-.search {
-  background-color: #f0f0f0;
-  border-radius: 4px;
+h5 {
+  color: #ED6C5B;
 }
 
 .search {
   max-width: 70%;
   margin: auto;
+  background-color: #F6F2F1;
+  border-radius: 4px;
 }
 
 .btn.btn-primary.btn-sm {
@@ -49,11 +38,5 @@
   color: #FFFFFF;
   font-size: 16px;
   font-weight: 600;
-}
-
-@include media-breakpoint-up(md) { 
-  .row.col .col-sm- {
-    grid-column: 2;
-  }
 }
 

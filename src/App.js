@@ -1,7 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./custom.css";
 import "./App.css";
 import CardSkeleton from "./components/CardSkeleton";
-import CardRecipe from "./components/CardRecipe";
 import InputGroup from "./components/InputGroup"
 import Results from "./components/Results"
 import React, { useState } from "react";
@@ -50,15 +50,15 @@ function App() {
       />
 
       <div className="mt-5 container">
-      <div className="row row-cols-3">
-          <div className="col">
+      <div className="row">
+          <div className="mt-3 col-md">
             <CardSkeleton />
             </div>
-            <div className="col">
-            <CardRecipe />
+            <div className="mt-3 col-md">
+            <Results />
             </div>
-            <div className="col">
-            <CardRecipe />
+            <div className="mt-3 col-md">
+            <Results />
             </div>
         </div>
       </div>
