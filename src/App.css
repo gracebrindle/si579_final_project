@@ -51,9 +51,3 @@
   font-weight: 600;
 }
 
-@include media-breakpoint-up(md) { 
-  .row.col .col-sm- {
-    grid-column: 2;
-  }
-}
-
