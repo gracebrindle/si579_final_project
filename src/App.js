@@ -1,4 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./custom.css";
 import "./App.css";
 import CardSkeleton from "./components/CardSkeleton";
 import CardRecipe from "./components/CardRecipe";
