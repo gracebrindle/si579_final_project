@@ -2,7 +2,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./custom.css";
 import "./App.css";
 import CardSkeleton from "./components/CardSkeleton";
-import CardRecipe from "./components/CardRecipe";
 import InputGroup from "./components/InputGroup"
 import Results from "./components/Results"
 import React, { useState } from "react";
@@ -56,10 +55,10 @@ function App() {
             <CardSkeleton />
             </div>
             <div className="mt-3 col-md">
-            <CardRecipe />
+            <Results />
             </div>
             <div className="mt-3 col-md">
-            <CardRecipe />
+            <Results />
             </div>
         </div>
       </div>
