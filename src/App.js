@@ -50,14 +50,14 @@ function App() {
       />
 
       <div className="mt-5 container">
-      <div className="row row-cols-3">
-          <div className="col">
+      <div className="row">
+          <div className="mt-3 col-md">
             <CardSkeleton />
             </div>
-            <div className="col">
+            <div className="mt-3 col-md">
             <CardRecipe />
             </div>
-            <div className="col">
+            <div className="mt-3 col-md">
             <CardRecipe />
             </div>
         </div>
