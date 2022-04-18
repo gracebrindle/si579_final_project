@@ -17,7 +17,7 @@ const Results = (props) => {
             let recipeTitle = recipe["results"]["title"];
 
             output.push (
-                <div className="col">
+                <div className="col" key={Math.random()}>
                     <div className="card">
                         <img
                             src={imageSource}

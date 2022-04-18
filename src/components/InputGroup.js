@@ -1,5 +1,7 @@
 import React from "react";
 import './InputGroup.css'
+import './PantryItems.js'
+import PantryItems from "./PantryItems";
 
 const InputGroup = (props) => {
   // Define props that were passed in through App
@@ -29,7 +31,7 @@ const InputGroup = (props) => {
       const ingredientList = [ingredient,
         ...includeIngredientsValue
       ]
-      console.log(ingredientList)
+      console.log("Ingredient List: " + ingredientList)
       return ingredientList
     })
   }
@@ -39,9 +41,8 @@ const InputGroup = (props) => {
   }
 
   function clearIngredients() {
-    setIncludeIngredientsValue((includeIngredientsValue) => {
+    setIncludeIngredientsValue(() => {
       const ingredientList = []
-      console.log(ingredientList)
       return ingredientList
     })
   }
@@ -64,6 +65,7 @@ const InputGroup = (props) => {
       .then((response) => response.json())
       .then((json) => {
         // Check to see if there are results
+        console.log("API Results:")
         console.log(json)
         if (json.length) {
           setRecipesResults(json);
@@ -123,67 +125,11 @@ const InputGroup = (props) => {
         <div className="me-auto bd-highlight">
           <h5>Pantry Items</h5>
         </div>
-        <div className="bd-highlight">
-          <h6>Clear</h6>
-        </div>
       </div>
 
-      <div className="p-2 mx-auto d-flex flex-wrap">
-        <button
-          type="button"
-          className="m-1 btn btn-primary btn-sm pantry-item"
-        >
-          Small button{" "}
-          <button type="button" className="close" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </button>
-        <button
-          type="button"
-          className="m-1 btn btn-primary btn-sm pantry-item"
-        >
-          Small button{" "}
-          <button type="button" className="close" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </button>
-        <button
-          type="button"
-          className="m-1 btn btn-primary btn-sm pantry-item"
-        >
-          Small button{" "}
-          <button type="button" className="close" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </button>
-        <button
-          type="button"
-          className="m-1 btn btn-primary btn-sm pantry-item"
-        >
-          Small button{" "}
-          <button type="button" className="close" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </button>
-        <button
-          type="button"
-          className="m-1 btn btn-primary btn-sm pantry-item"
-        >
-          Small button{" "}
-          <button type="button" className="close" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </button>
-        <button
-          type="button"
-          className="m-1 btn btn-primary btn-sm pantry-item"
-        >
-          Small button{" "}
-          <button type="button" className="close" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </button>
-      </div>
+      <PantryItems
+          ingredient={ingredient}
+      />
 
       <div className="d-flex flex-row-reverse bd-highlight">
         <div className="p-2 bd-highlight">
@@ -191,6 +137,7 @@ const InputGroup = (props) => {
             Find Recipes
           </button>
         </div>
+
         <div className="p-2 bd-highlight">
           <button className="btn btn-outline-secondary" type="button" onClick={clearIngredients}>
             Reset

@@ -57,7 +57,10 @@ function App() {
             <CardSkeleton />
             </div>
             <div className="mt-3 col-md">
-            <Results />
+            <Results
+                noResults={noResults}
+                recipesResults={recipesResults}
+                />
             </div>
             <div className="mt-3 col-md">
             <Results />
