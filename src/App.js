@@ -49,10 +49,6 @@ function App() {
         setNoResults = {setNoResults}
       />
 
-      {/* temporary spot to work on card formatting */}
-      
-      <div className="container">
-        <div className="row">
       <div className="mt-5 container">
       <div className="row row-cols-3">
           <div className="col">
