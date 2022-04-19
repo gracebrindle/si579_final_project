@@ -8,38 +8,38 @@ const InputGroup = (props) => {
   const {
     setIngredient,
     ingredient,
-    setCuisineValue,
-    cuisineValue,
-    setDietValue,
-    dietValue,
-    setIntolerancesValue,
-    intolerancesValue,
     setIncludeIngredientsValue,
     includeIngredientsValue,
-    setExcludeIngredientsValue,
-    excludeIngredientsValue,
-    setMaxReadyTimeValue,
-    maxReadyTimeValue,
     setRecipesResults,
-    recipesResults,
     setNoResults,
   } = props;
 
-
   function addIngredient(ingredient) {
-    setIncludeIngredientsValue((includeIngredientsValue) => {
-      const ingredientList = [ingredient,
-        ...includeIngredientsValue
-      ]
-      console.log("Ingredient List: " + ingredientList)
-      return ingredientList
-    })
+    setIncludeIngredientsValue((currentIngredients) => {
+      return [
+        {
+          ingredient: ingredient
+        },
+        ...currentIngredients,
+      ];
+    });
   }
 
+  // Add input ingredient to the list of ingredients to include
+  function addIngredient(ingredient) {
+    setIncludeIngredientsValue((currentIngredients) => {
+      return [ingredient,
+        ...currentIngredients]
+    })
+    console.log(typeof(includeIngredientsValue))
+  }
+
+  // Remove individual ingredient
   function removeIngredient(ingredient) {
 
   }
 
+  // Clear all ingredients
   function clearIngredients() {
     setIncludeIngredientsValue(() => {
       const ingredientList = []
@@ -51,23 +51,18 @@ const InputGroup = (props) => {
   // Fetch rhymes from API using the input values
   const SearchRecipes = () => {
     fetch(
-      // Adjust API URL to include the inputValue
       `https://api.spoonacular.com/recipes/complexSearch?${new URLSearchParams({
-        // cuisine: cuisineValue,
-        // diet: dietValue,
-        // intolerances: intolerancesValue,
         includeIngredients: includeIngredientsValue.join(','),
-        // excludeIngredients: excludeIngredientsValue,
-        // maxReadyTime: maxReadyTimeValue,
         apiKey: '122cfed9ea8e4f779d5e8580866a6e86',
       }).toString()}`
     )
       .then((response) => response.json())
       .then((json) => {
-        // Check to see if there are results
         console.log("API Results:")
         console.log(json)
-        if (json.length) {
+
+        // Check to see if there are results
+        if (json.results.length) {
           setRecipesResults(json);
           setNoResults(false);
         } else {
@@ -76,6 +71,7 @@ const InputGroup = (props) => {
       });
   };
 
+  // Add ingredient when 'enter' key is pressed
   const keyDownHandler = (e) => {
     if (e.key === "Enter") {
       addIngredient(ingredient);
@@ -110,12 +106,10 @@ const InputGroup = (props) => {
             placeholder="Find ingredient"
           />
 
-
           <button
             type="button"
             className="btn btn-primary"
-            onClick={()=>addIngredient(ingredient)}
-          >
+            onClick={()=>addIngredient(ingredient)}>
             Add Ingredient
           </button>
         </div>
@@ -127,9 +121,18 @@ const InputGroup = (props) => {
         </div>
       </div>
 
-      <PantryItems
-          ingredient={ingredient}
-      />
+      { typeof(includeIngredientsValue) == 'object' ?
+          includeIngredientsValue.map((ingredient) =>
+            <PantryItems
+                ingredient={ingredient}
+            />
+        )
+          :<PantryItems
+              ingredient={ingredient}
+          />
+      }
+
+
 
       <div className="d-flex flex-row-reverse bd-highlight">
         <div className="p-2 bd-highlight">
