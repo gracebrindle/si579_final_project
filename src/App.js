@@ -8,12 +8,7 @@ import React, { useState } from "react";
 
 function App() {
   const [ingredient, setIngredient] = useState("");
-  const [cuisineValue, setCuisineValue] = useState("");
-  const [dietValue, setDietValue] = useState("");
-  const [intolerancesValue, setIntolerancesValue] = useState("");
   const [includeIngredientsValue, setIncludeIngredientsValue] = useState("");
-  const [excludeIngredientsValue, setExcludeIngredientsValue] = useState("");
-  const [maxReadyTimeValue, setMaxReadyTimeValue] = useState("");
   const [recipesResults, setRecipesResults] = useState([]);
   const [noResults, setNoResults] = useState(true);
 
@@ -27,23 +22,8 @@ function App() {
         setIngredient={setIngredient}
         ingredient={ingredient}
 
-        setCuisineValue={setCuisineValue}
-        cuisineValue={cuisineValue}
-
-        setDietValue={setDietValue}
-        dietValue={dietValue}
-
-        setIntolerancesValue={setIntolerancesValue}
-        intolerancesValue={intolerancesValue}
-
         setIncludeIngredientsValue={setIncludeIngredientsValue}
         includeIngredientsValue={includeIngredientsValue}
-
-        setExcludeIngredientsValue={setExcludeIngredientsValue}
-        excludeIngredientsValue={excludeIngredientsValue}
-
-        setMaxReadyTimeValue={setMaxReadyTimeValue}
-        maxReadyTimeValue={maxReadyTimeValue}
 
         setRecipesResults = {setRecipesResults}
         recipesResults={recipesResults}
@@ -57,13 +37,12 @@ function App() {
             <CardSkeleton />
             </div>
             <div className="mt-3 col-md">
+
             <Results
                 noResults={noResults}
                 recipesResults={recipesResults}
                 />
-            </div>
-            <div className="mt-3 col-md">
-            <Results />
+
             </div>
         </div>
       </div>
