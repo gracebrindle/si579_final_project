@@ -1,0 +1,20 @@
+.ingredient-tag {
+  border: 2px solid #ed6c5b;
+  border-radius: 50rem;
+  background-color: white;
+  color: #6c757d;
+  padding: 4px;
+  padding-left: 8px;
+  font-weight: 500;
+  font-size: 16px;
+  cursor: default;
+}
+
+.ingredient-tag:hover {
+  background-color: #ed6c5b;
+  color: #ffffff;
+}
+
+.btn-close.pantry-close {
+  margin-left: 4px;
+}

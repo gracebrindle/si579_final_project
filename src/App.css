@@ -25,18 +25,3 @@ h5 {
   background-color: #F6F2F1;
   border-radius: 4px;
 }
-
-.btn.btn-primary.btn-sm {
-  background-color: #ED6C5B;
-	border-color: #ED6C5B;
-  border-radius: 50rem;
-}
-
-.btn.btn-primary.btn-sm .close {
-  border: none;
-  background-color: #ED6C5B;
-  color: #FFFFFF;
-  font-size: 16px;
-  font-weight: 600;
-}
-
