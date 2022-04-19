@@ -121,11 +121,18 @@ const InputGroup = (props) => {
         </div>
       </div>
 
-      {/*{includeIngredientsValue.map((ingredient) =>*/}
-      <PantryItems
-          ingredient={ingredient}
-      />
-      {/*)}*/}
+      { typeof(includeIngredientsValue) == 'object' ?
+          includeIngredientsValue.map((ingredient) =>
+            <PantryItems
+                ingredient={ingredient}
+            />
+        )
+          :<PantryItems
+              ingredient={ingredient}
+          />
+      }
+
+
 
       <div className="d-flex flex-row-reverse bd-highlight">
         <div className="p-2 bd-highlight">
