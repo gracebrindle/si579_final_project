@@ -1,11 +1,13 @@
 import React from "react";
 import './InputGroup.css'
+import './PantryItems.js'
+import PantryItems from "./PantryItems";
 
 const InputGroup = (props) => {
   // Define props that were passed in through App
   const {
-    setQueryValue,
-    queryValue,
+    setIngredient,
+    ingredient,
     setCuisineValue,
     cuisineValue,
     setDietValue,
@@ -19,8 +21,31 @@ const InputGroup = (props) => {
     setMaxReadyTimeValue,
     maxReadyTimeValue,
     setRecipesResults,
+    recipesResults,
     setNoResults,
   } = props;
+
+
+  function addIngredient(ingredient) {
+    setIncludeIngredientsValue((includeIngredientsValue) => {
+      const ingredientList = [ingredient,
+        ...includeIngredientsValue
+      ]
+      console.log("Ingredient List: " + ingredientList)
+      return ingredientList
+    })
+  }
+
+  function removeIngredient(ingredient) {
+
+  }
+
+  function clearIngredients() {
+    setIncludeIngredientsValue(() => {
+      const ingredientList = []
+      return ingredientList
+    })
+  }
 
 
   // Fetch rhymes from API using the input values
@@ -28,18 +53,20 @@ const InputGroup = (props) => {
     fetch(
       // Adjust API URL to include the inputValue
       `https://api.spoonacular.com/recipes/complexSearch?${new URLSearchParams({
-        query: queryValue,
-        cuisine: cuisineValue,
-        diet: dietValue,
-        intolerances: intolerancesValue,
-        includeIngredients: includeIngredientsValue,
-        excludeIngredients: excludeIngredientsValue,
-        maxReadyTime: maxReadyTimeValue,
+        // cuisine: cuisineValue,
+        // diet: dietValue,
+        // intolerances: intolerancesValue,
+        includeIngredients: includeIngredientsValue.join(','),
+        // excludeIngredients: excludeIngredientsValue,
+        // maxReadyTime: maxReadyTimeValue,
+        apiKey: '122cfed9ea8e4f779d5e8580866a6e86',
       }).toString()}`
     )
       .then((response) => response.json())
       .then((json) => {
         // Check to see if there are results
+        console.log("API Results:")
+        console.log(json)
         if (json.length) {
           setRecipesResults(json);
           setNoResults(false);
@@ -51,7 +78,7 @@ const InputGroup = (props) => {
 
   const keyDownHandler = (e) => {
     if (e.key === "Enter") {
-      SearchRecipes();
+      addIngredient(ingredient);
     }
   };
 
@@ -76,8 +103,9 @@ const InputGroup = (props) => {
         <div className="input-group col">
           <input
             className="form-control"
-            value={queryValue}
-            onChange={(event) => setQueryValue(event.target.value)}
+            value={ingredient}
+            onChange={(event) => setIngredient(event.target.value)}
+            onKeyDown={keyDownHandler}
             type="text"
             placeholder="Find ingredient"
           />
@@ -86,7 +114,7 @@ const InputGroup = (props) => {
           <button
             type="button"
             className="btn btn-primary"
-            onClick={SearchRecipes}
+            onClick={()=>addIngredient(ingredient)}
           >
             Add Ingredient
           </button>
@@ -97,76 +125,21 @@ const InputGroup = (props) => {
         <div className="me-auto bd-highlight">
           <h5>Pantry Items</h5>
         </div>
-        <div className="bd-highlight">
-          <h6>Clear</h6>
-        </div>
       </div>
 
-      <div className="p-2 mx-auto d-flex flex-wrap">
-        <button
-          type="button"
-          className="m-1 btn btn-primary btn-sm pantry-item"
-        >
-          Small button{" "}
-          <button type="button" className="close" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </button>
-        <button
-          type="button"
-          className="m-1 btn btn-primary btn-sm pantry-item"
-        >
-          Small button{" "}
-          <button type="button" className="close" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </button>
-        <button
-          type="button"
-          className="m-1 btn btn-primary btn-sm pantry-item"
-        >
-          Small button{" "}
-          <button type="button" className="close" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </button>
-        <button
-          type="button"
-          className="m-1 btn btn-primary btn-sm pantry-item"
-        >
-          Small button{" "}
-          <button type="button" className="close" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </button>
-        <button
-          type="button"
-          className="m-1 btn btn-primary btn-sm pantry-item"
-        >
-          Small button{" "}
-          <button type="button" className="close" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </button>
-        <button
-          type="button"
-          className="m-1 btn btn-primary btn-sm pantry-item"
-        >
-          Small button{" "}
-          <button type="button" className="close" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </button>
-      </div>
+      <PantryItems
+          ingredient={ingredient}
+      />
 
       <div className="d-flex flex-row-reverse bd-highlight">
         <div className="p-2 bd-highlight">
-          <button className="btn btn-primary" type="button">
+          <button className="btn btn-primary" type="button" onClick={SearchRecipes}>
             Find Recipes
           </button>
         </div>
+
         <div className="p-2 bd-highlight">
-          <button className="btn btn-outline-secondary" type="button">
+          <button className="btn btn-outline-secondary" type="button" onClick={clearIngredients}>
             Reset
           </button>
         </div>

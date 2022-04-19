@@ -7,7 +7,7 @@ import Results from "./components/Results"
 import React, { useState } from "react";
 
 function App() {
-  const [queryValue, setQueryValue] = useState("");
+  const [ingredient, setIngredient] = useState("");
   const [cuisineValue, setCuisineValue] = useState("");
   const [dietValue, setDietValue] = useState("");
   const [intolerancesValue, setIntolerancesValue] = useState("");
@@ -24,8 +24,8 @@ function App() {
       </div>
 
       <InputGroup
-        setQueryValue={setQueryValue}
-        queryValue={queryValue}
+        setIngredient={setIngredient}
+        ingredient={ingredient}
 
         setCuisineValue={setCuisineValue}
         cuisineValue={cuisineValue}
@@ -46,6 +46,8 @@ function App() {
         maxReadyTimeValue={maxReadyTimeValue}
 
         setRecipesResults = {setRecipesResults}
+        recipesResults={recipesResults}
+
         setNoResults = {setNoResults}
       />
 
@@ -55,7 +57,10 @@ function App() {
             <CardSkeleton />
             </div>
             <div className="mt-3 col-md">
-            <Results />
+            <Results
+                noResults={noResults}
+                recipesResults={recipesResults}
+                />
             </div>
             <div className="mt-3 col-md">
             <Results />
