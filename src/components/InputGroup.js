@@ -14,6 +14,7 @@ const InputGroup = (props) => {
     setNoResults,
   } = props;
 
+  // Add individual ingredient
   function addIngredient(ingredient) {
     setIncludeIngredientsValue((currentIngredients) => {
       return [
