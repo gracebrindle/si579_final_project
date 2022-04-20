@@ -1,0 +1,10 @@
+.search-input {
+  max-width: 60%;
+  margin: auto;
+}
+
+.pantry-items {
+  margin: auto;
+  background-color: #f6f2f1;
+  border-radius: 4px;
+}
