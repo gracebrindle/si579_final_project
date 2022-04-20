@@ -132,6 +132,8 @@ const InputGroup = (props) => {
         )
           :<PantryItems
               ingredient={ingredient}
+              includeIngredientsValue={includeIngredientsValue}
+              setIncludeIngredientsValue={setIncludeIngredientsValue}
           />
       }
 
