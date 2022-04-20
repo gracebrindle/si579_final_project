@@ -36,9 +36,21 @@ function App() {
       <div className="mt-5 container">
       <div className="row">
 
-              {loading ? <div className="mt-3 col-md">
-              <CardSkeleton />
-              </div>: ""
+              {loading ?
+
+                  <div className>
+                    <CardSkeleton />
+                      <CardSkeleton />
+                      <CardSkeleton />
+                      <CardSkeleton />
+                      <CardSkeleton />
+                      <CardSkeleton />
+                      <CardSkeleton />
+                      <CardSkeleton />
+                      <CardSkeleton />
+                      <CardSkeleton />
+                  </div>
+                  : ""
               }
             <div className="mt-3 col-md">
 
