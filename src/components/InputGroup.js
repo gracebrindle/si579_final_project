@@ -12,6 +12,7 @@ const InputGroup = (props) => {
     includeIngredientsValue,
     setRecipesResults,
     setNoResults,
+    setLoading
   } = props;
 
   // Add individual ingredient
@@ -50,6 +51,7 @@ const InputGroup = (props) => {
 
   // Fetch rhymes from API using the input values
   const SearchRecipes = () => {
+    setLoading(true)
     fetch(
       `https://api.spoonacular.com/recipes/complexSearch?${new URLSearchParams({
         includeIngredients: includeIngredientsValue.join(','),
@@ -60,7 +62,7 @@ const InputGroup = (props) => {
       .then((json) => {
         console.log("API Results:")
         console.log(json)
-
+        setLoading(false)
         // Check to see if there are results
         if (json.results.length) {
           setRecipesResults(json);
