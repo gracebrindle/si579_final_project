@@ -50,7 +50,7 @@ const InputGroup = (props) => {
     fetch(
       `https://api.spoonacular.com/recipes/complexSearch?${new URLSearchParams({
         includeIngredients: includeIngredientsValue.join(','),
-        apiKey: '122cfed9ea8e4f779d5e8580866a6e86',
+        apiKey: '190a82499347437ab65f0ebbd7f1680e',
       }).toString()}`
     )
       .then((response) => response.json())
