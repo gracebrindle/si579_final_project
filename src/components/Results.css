@@ -4,6 +4,10 @@
     object-fit: cover;
 }
 
+.card-title {
+    height: 48px;
+}
+
 .card {
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.1));
 }
