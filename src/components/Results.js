@@ -13,7 +13,7 @@ const Results = (props) => {
       let recipeTitle = recipe["title"];
 
       output.push(
-        <div className="mt-3" key={Math.random()}>
+        <div className="mt-4" key={Math.random()}>
           <div className="card">
             <img src={imageSource} className="card-img-top" alt="..." />
             <div className="card-body">
