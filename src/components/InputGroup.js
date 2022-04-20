@@ -125,6 +125,8 @@ const InputGroup = (props) => {
           includeIngredientsValue.map((ingredient) =>
             <PantryItems
                 ingredient={ingredient}
+                includeIngredientsValue={includeIngredientsValue}
+                setIncludeIngredientsValue={setIncludeIngredientsValue}
             />
         )
           :<PantryItems
