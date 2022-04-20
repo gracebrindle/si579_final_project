@@ -1,22 +1,26 @@
 import React from "react";
+import "./PantryItems.css";
 
 const PantryItems = (props) => {
-   const {ingredient} = props;
+  const { ingredient } = props;
 
-    return(
-        <div className="p-2 mx-auto d-flex flex-wrap">
-            <button
-                key={Math.random()}
-                type="button"
-                className="m-1 btn btn-primary btn-sm pantry-item"
-            >
-                {ingredient}{" "}
-                <button type="button" className="close" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </button>
-        </div>
-    )
-}
+  return (
+    <div className="p-2 d-flex flex-wrap">
+      <div
+        key={Math.random()}
+        className="d-flex justify-content-start ingredient-tag"
+        >
+        {ingredient}{" "}
+        <button
+          type="button"
+          className="d-flex justify-content-end btn-close pantry-close"
+          aria-label="Close"
+          >
+          <span aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+  );
+};
 
 export default PantryItems;
