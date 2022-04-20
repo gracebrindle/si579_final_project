@@ -13,7 +13,7 @@ function App() {
   const [noResults, setNoResults] = useState(true);
   const [loading, setLoading] = useState(false);
 
-  return (
+    return (
     <main>
       <div className="d-flex justify-content-center logo">
       <img src={require('./logo.png')} />

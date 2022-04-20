@@ -15,30 +15,25 @@ const InputGroup = (props) => {
     setLoading
   } = props;
 
-  // Add individual ingredient
-  function addIngredient(ingredient) {
-    setIncludeIngredientsValue((currentIngredients) => {
-      return [
-        {
-          ingredient: ingredient
-        },
-        ...currentIngredients,
-      ];
-    });
-  }
-
-  // Add input ingredient to the list of ingredients to include
+ // Add input ingredient to the list of ingredients to include
   function addIngredient(ingredient) {
     setIncludeIngredientsValue((currentIngredients) => {
       return [ingredient,
         ...currentIngredients]
     })
+    console.log(includeIngredientsValue)
   }
 
-  // Remove individual ingredient
-  function removeIngredient(ingredient) {
-
-  }
+  // // Remove individual ingredient
+  // const removeIngredient = (ingredient) => {
+  //   setIncludeIngredientsValue((previousIngredients) => {
+  //     const withItemRemoved = previousIngredients.filter((ingredient) => {
+  //       return item.key !== key
+  //     });
+  //     return withItemRemoved;
+  //   });
+  //   console.log(includeIngredientsValue)
+  // }
 
   // Clear all ingredients
   function clearIngredients() {
@@ -126,10 +121,11 @@ const InputGroup = (props) => {
       { typeof(includeIngredientsValue) == 'object' ?
           includeIngredientsValue.map((ingredient, index) =>
             <PantryItems
-                ingredient={ingredient}
                 key={index}
+                ingredient={ingredient}
                 includeIngredientsValue={includeIngredientsValue}
                 setIncludeIngredientsValue={setIncludeIngredientsValue}
+                // remove={() => removeIngredient(ingredient.key)}
             />
         )
           :<PantryItems
@@ -138,8 +134,6 @@ const InputGroup = (props) => {
               setIncludeIngredientsValue={setIncludeIngredientsValue}
           />
       }
-
-
 
       <div className="d-flex flex-row-reverse bd-highlight">
         <div className="p-2 bd-highlight">

@@ -2,9 +2,7 @@ import React from "react";
 import "./PantryItems.css";
 
 const PantryItems = (props) => {
-  const { ingredient, includeIngredientsValue, setIncludeIngredientsValue } = props;
-
-
+  const { removeIngredient, ingredient } = props;
 
   return (
     <div className="p-2 d-inline-flex flex-wrap">
@@ -15,12 +13,8 @@ const PantryItems = (props) => {
         {ingredient}{" "}
         <button
           type="button"
-          onClick= {() => {
+          onClick={removeIngredient}
             // includeIngredientsValue.filter((ingredient) => ingredient.name !== includeIngredientsValue);
-            setIncludeIngredientsValue((includeIngredientsValue) => {
-              return includeIngredientsValue.pop([ingredient]);
-            });
-        }}
           className="d-flex justify-content-end btn-close pantry-close"
           aria-label="Close"
           >
