@@ -11,6 +11,7 @@ function App() {
   const [includeIngredientsValue, setIncludeIngredientsValue] = useState("");
   const [recipesResults, setRecipesResults] = useState([]);
   const [noResults, setNoResults] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   return (
     <main>
@@ -29,13 +30,16 @@ function App() {
         recipesResults={recipesResults}
 
         setNoResults = {setNoResults}
+        setLoading = {setLoading}
       />
 
       <div className="mt-5 container">
       <div className="row">
-          <div className="mt-3 col-md">
-            <CardSkeleton />
-            </div>
+
+              {loading ? <div className="mt-3 col-md">
+              <CardSkeleton />
+              </div>: ""
+              }
             <div className="mt-3 col-md">
 
             <Results
