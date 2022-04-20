@@ -14,6 +14,7 @@ const InputGroup = (props) => {
     setNoResults,
   } = props;
 
+  // Add individual ingredient
   function addIngredient(ingredient) {
     setIncludeIngredientsValue((currentIngredients) => {
       return [
@@ -31,7 +32,6 @@ const InputGroup = (props) => {
       return [ingredient,
         ...currentIngredients]
     })
-    console.log(typeof(includeIngredientsValue))
   }
 
   // Remove individual ingredient
@@ -122,9 +122,10 @@ const InputGroup = (props) => {
       </div>
 
       { typeof(includeIngredientsValue) == 'object' ?
-          includeIngredientsValue.map((ingredient) =>
+          includeIngredientsValue.map((ingredient, index) =>
             <PantryItems
                 ingredient={ingredient}
+                key={index}
                 includeIngredientsValue={includeIngredientsValue}
                 setIncludeIngredientsValue={setIncludeIngredientsValue}
             />
