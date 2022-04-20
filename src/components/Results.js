@@ -12,9 +12,9 @@ const Results = (props) => {
         output=[]
     }
     else {
-        for (let recipe in recipesResults) {
-            let imageSource = recipe["results"]["image"];
-            let recipeTitle = recipe["results"]["title"];
+        recipesResults.results.forEach(recipe => {
+            let imageSource = recipe["image"];
+            let recipeTitle = recipe["title"];
 
             output.push (
                 <div className="col" key={Math.random()}>
@@ -34,7 +34,7 @@ const Results = (props) => {
                     </div>
                 </div>
             )
-        }
+        })
     }
 
     return (

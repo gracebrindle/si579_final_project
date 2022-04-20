@@ -32,7 +32,6 @@ const InputGroup = (props) => {
       return [ingredient,
         ...currentIngredients]
     })
-    console.log(typeof(includeIngredientsValue))
   }
 
   // Remove individual ingredient
@@ -123,9 +122,10 @@ const InputGroup = (props) => {
       </div>
 
       { typeof(includeIngredientsValue) == 'object' ?
-          includeIngredientsValue.map((ingredient) =>
+          includeIngredientsValue.map((ingredient, index) =>
             <PantryItems
                 ingredient={ingredient}
+                key={index}
             />
         )
           :<PantryItems
