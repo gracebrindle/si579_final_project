@@ -60,11 +60,7 @@ const Results = (props) => {
         })
     }
 
-    return (
-        <ul>
-            {output}
-        </ul>
-    )
-}
+  return <div className="row row-cols-md-3">{output}</div>;
+};
 
 export default Results;

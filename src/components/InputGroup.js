@@ -91,7 +91,7 @@ const InputGroup = (props) => {
   
 
   return (
-    <div className="search">
+    <div className="search-input">
       <div className="row">
         <div className="input-group col">
           <input
@@ -112,6 +112,7 @@ const InputGroup = (props) => {
         </div>
       </div>
 
+      <div className="pantry-items">
       <div className="p-2 d-flex bd-highlight">
         <div className="me-auto bd-highlight">
           <h5>Pantry Items</h5>
@@ -148,6 +149,7 @@ const InputGroup = (props) => {
           </button>
         </div>
       </div>
+    </div>
     </div>
   );
 };
