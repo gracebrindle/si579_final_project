@@ -17,7 +17,6 @@ const PantryItems = (props) => {
         <button
           type="button"
           onClick={()=>remove(ingredient, index)}
-            // includeIngredientsValue.filter((ingredient) => ingredient.name !== includeIngredientsValue);
           className="d-flex justify-content-end btn-close pantry-close"
           aria-label="Close"
           >
