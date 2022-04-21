@@ -56,7 +56,6 @@ const InputGroup = (props) => {
     setRecipeIdToShow("")
     let ingredientNames = []
     setLoading(true);
-    let ingredientNames = [];
 
     for (let item in includeIngredientsValue) {
       ingredientNames.push(item.ingredient_name);
