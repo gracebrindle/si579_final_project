@@ -18,22 +18,26 @@ const InputGroup = (props) => {
  // Add input ingredient to the list of ingredients to include
   function addIngredient(ingredient) {
     setIncludeIngredientsValue((currentIngredients) => {
-      return [ingredient,
-        ...currentIngredients]
-    })
+      return [
+        {
+          ingredient_name: ingredient,
+          created: Date.now()
+        },
+        ...currentIngredients,
+      ];
+    });
     console.log(includeIngredientsValue)
   }
 
-  // // Remove individual ingredient
-  // const removeIngredient = (ingredient) => {
-  //   setIncludeIngredientsValue((previousIngredients) => {
-  //     const withItemRemoved = previousIngredients.filter((ingredient) => {
-  //       return item.key !== key
-  //     });
-  //     return withItemRemoved;
-  //   });
-  //   console.log(includeIngredientsValue)
-  // }
+  function removeIngredient(created) {
+    setIncludeIngredientsValue((previousIngredients) => {
+      const withItemRemoved = previousIngredients.filter((item) => {
+        return item.created !== created
+      });
+      return withItemRemoved;
+    });
+    console.log(includeIngredientsValue)
+  }
 
   // Clear all ingredients
   function clearIngredients() {
@@ -55,7 +59,6 @@ const InputGroup = (props) => {
     )
       .then((response) => response.json())
       .then((json) => {
-        console.log("API Results:")
         console.log(json)
         setLoading(false)
         // Check to see if there are results
@@ -120,19 +123,20 @@ const InputGroup = (props) => {
       </div>
 
       { typeof(includeIngredientsValue) == 'object' ?
-          includeIngredientsValue.map((ingredient, index) =>
+          includeIngredientsValue.map((ingredient) =>
             <PantryItems
-                key={index}
-                ingredient={ingredient}
+                key={ingredient.created}
+                ingredient={ingredient.ingredient_name}
                 includeIngredientsValue={includeIngredientsValue}
                 setIncludeIngredientsValue={setIncludeIngredientsValue}
-                // remove={() => removeIngredient(ingredient.key)}
+                remove={() => removeIngredient(ingredient.created)}
             />
         )
           :<PantryItems
               ingredient={ingredient}
               includeIngredientsValue={includeIngredientsValue}
               setIncludeIngredientsValue={setIncludeIngredientsValue}
+              remove={() => removeIngredient(ingredient)}
           />
       }
 

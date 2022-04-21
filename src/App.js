@@ -47,7 +47,9 @@ function App() {
         ) : (
           ""
         )}
-        <Results noResults={noResults} recipesResults={recipesResults} />
+        <Results
+            noResults={noResults}
+            recipesResults={recipesResults}/>
       </div>
     </main>
   );

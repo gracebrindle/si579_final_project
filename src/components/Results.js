@@ -1,19 +1,12 @@
 import React, {useState} from "react";
 import './Results.css';
-// import {
-//     BrowserRouter as Router,
-//     Routes,
-//     Route,
-//     Link
-// } from "react-router-dom";
-// import RecipeDetails from "./RecipeDetails";
+import RecipeDetails from "./RecipeDetails";
 
 const Results = (props) => {
     const {
         noResults,
         recipesResults
     } = props;
-    // const [recipeInfo, setRecipeInfo] = useState([]);
     let output = [];
 
     if (noResults) {
@@ -21,9 +14,9 @@ const Results = (props) => {
     }
     else {
         recipesResults.results.forEach(recipe => {
-            let imageSource = recipe["image"];
+            let recipe_id = recipe["id"];
+            let imageSource = `https://spoonacular.com/recipeImages/${recipe_id}-636x393.jpg`
             let recipeTitle = recipe["title"];
-            // let recipe_id=recipe["id"]
 
             // fetch(
             //     `https://api.spoonacular.com/recipes/${recipe_id}/information${new URLSearchParams({
@@ -39,7 +32,6 @@ const Results = (props) => {
 
             // let cooking_time = recipeInfo["readyInMinutes"]
             // let summary = recipeInfo["summary"]
-
             output.push (
                 <div className="col" key={Math.random()}>
                     <div className="card">
@@ -52,7 +44,8 @@ const Results = (props) => {
                             {/*    {summary}*/}
                             {/*</p>*/}
                             {/*<p>Ready in ${cooking_time} Minutes</p>*/}
-                            <a href="#" className="btn btn-primary">View Recipe</a>
+
+                            <a href="#" className="btn btn-primary" onClick={()=>RecipeDetails(recipe_id)}>View Recipe</a>
                         </div>
                     </div>
                 </div>
