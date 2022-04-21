@@ -8,7 +8,7 @@ const Results = (props) => {
         recipesResults
     } = props;
     let output = [];
-    const [recipeIdToShow, setRecipeIDToShow] = useState([]);
+    const [recipeIdToShow, setRecipeIdToShow] = useState("");
 
     if (noResults) {
         output=[]
@@ -46,7 +46,7 @@ const Results = (props) => {
                             {/*</p>*/}
                             {/*<p>Ready in ${cooking_time} Minutes</p>*/}
 
-                            <a href="#" className="btn btn-primary" onClick={()=>setRecipeIDToShow(recipe_id)}>View Recipe</a>
+                            <a href="#" className="btn btn-primary" onClick={()=>setRecipeIdToShow(recipe_id)}>View Recipe</a>
                         </div>
                     </div>
                 </div>
@@ -55,7 +55,13 @@ const Results = (props) => {
     }
 
   return (
+      <div>
       <div className="row row-cols-md-3">{output}</div>
+          {recipeIdToShow != "" ? <RecipeDetails>
+              recipeIdToShow = {recipeIdToShow}
+          </RecipeDetails>: ""}
+
+      </div>
   );
 };
 
