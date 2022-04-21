@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 
-function RecipeDetails(recipe_id) {
+const RecipeDetails = (props) => {
+    const {recipe_id} = props
     const [recipeInfo, setRecipeInfo] = useState([]);
 
         fetch(

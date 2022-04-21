@@ -26,7 +26,6 @@ const InputGroup = (props) => {
         ...currentIngredients,
       ];
     });
-    console.log(includeIngredientsValue)
   }
 
   function removeIngredient(created) {
@@ -36,7 +35,6 @@ const InputGroup = (props) => {
       });
       return withItemRemoved;
     });
-    console.log(includeIngredientsValue)
   }
 
   // Clear all ingredients
@@ -51,9 +49,16 @@ const InputGroup = (props) => {
   // Fetch rhymes from API using the input values
   const SearchRecipes = () => {
     setLoading(true)
-    fetch(
+    let ingredientNames = []
+
+    for (let item in includeIngredientsValue) {
+      ingredientNames.push(item. ingredient_name)
+  }
+
+      // Fix search query so it searches only ingredient names (not keys)
+      fetch(
       `https://api.spoonacular.com/recipes/complexSearch?${new URLSearchParams({
-        includeIngredients: includeIngredientsValue.join(','),
+        includeIngredients: ingredientNames.join(','),
         apiKey: '190a82499347437ab65f0ebbd7f1680e',
       }).toString()}`
     )
