@@ -143,8 +143,8 @@ const InputGroup = (props) => {
             options={options}
             renderMenuItemChildren={(option, props) => (
               <Fragment>
-                <button onClick={() => addIngredient(ingredient)}>Add</button>
-                <span>{option.name}</span>
+                <button className="btn-add" onClick={() => addIngredient(ingredient)}>Add</button>
+                <span> {option.name}</span>
               </Fragment>
             )}
           />
