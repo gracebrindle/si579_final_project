@@ -5,7 +5,9 @@ import RecipeDetails from "./RecipeDetails";
 const Results = (props) => {
     const {
         noResults,
-        recipesResults
+        recipesResults,
+        recipeIdToShow,
+        setRecipeIdToShow
     } = props;
     let output = [];
 
@@ -45,7 +47,7 @@ const Results = (props) => {
                             {/*</p>*/}
                             {/*<p>Ready in ${cooking_time} Minutes</p>*/}
 
-                            <a href="#" className="btn btn-primary" onClick={()=>RecipeDetails(recipe_id)}>View Recipe</a>
+                            <a href="#" className="btn btn-primary" onClick={()=>setRecipeIdToShow(recipe_id)}>View Recipe</a>
                         </div>
                     </div>
                 </div>
@@ -53,7 +55,17 @@ const Results = (props) => {
         })
     }
 
-  return <div className="row row-cols-md-3">{output}</div>;
+  return (
+      <div>
+      <div className="row row-cols-md-3">{output}</div>
+          {recipeIdToShow !== "" ?
+              <RecipeDetails>
+              recipeIdToShow = {recipeIdToShow}
+          </RecipeDetails>
+              : ""}
+
+      </div>
+  );
 };
 
 export default Results;
