@@ -12,7 +12,9 @@ const InputGroup = (props) => {
     includeIngredientsValue,
     setRecipesResults,
     setNoResults,
-    setLoading
+    setLoading,
+      setRecipeIdToShow,
+      recipeIdToShow
   } = props;
 
  // Add input ingredient to the list of ingredients to include
@@ -49,6 +51,7 @@ const InputGroup = (props) => {
   // Fetch rhymes from API using the input values
   const SearchRecipes = () => {
     setLoading(true)
+    setRecipeIdToShow("")
     let ingredientNames = []
 
     for (let item in includeIngredientsValue) {
