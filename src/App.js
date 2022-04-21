@@ -8,7 +8,7 @@ import React, { useState } from "react";
 
 function App() {
   const [ingredient, setIngredient] = useState("");
-  const [includeIngredientsValue, setIncludeIngredientsValue] = useState("");
+  const [includeIngredientsValue, setIncludeIngredientsValue] = useState([]);
   const [recipesResults, setRecipesResults] = useState([]);
   const [noResults, setNoResults] = useState(true);
   const [loading, setLoading] = useState(false);

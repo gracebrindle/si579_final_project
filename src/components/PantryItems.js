@@ -7,7 +7,7 @@ const PantryItems = (props) => {
   const { ingredient,
       index,
         remove} = props;
-
+console.log(ingredient)
   return (
     <div className="p-2 d-inline-flex flex-wrap" key={index}>
       <div
