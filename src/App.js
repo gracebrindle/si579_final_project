@@ -12,8 +12,9 @@ function App() {
   const [recipesResults, setRecipesResults] = useState([]);
   const [noResults, setNoResults] = useState(true);
   const [loading, setLoading] = useState(false);
+  const [recipeIdToShow, setRecipeIdToShow] = useState("");
 
-    return (
+  return (
     <main>
       <div className="d-flex justify-content-center logo">
         <img src={require("./logo.png")} />
@@ -28,6 +29,8 @@ function App() {
         recipesResults={recipesResults}
         setNoResults={setNoResults}
         setLoading={setLoading}
+        recipeIdToShow = {recipeIdToShow}
+        setRecipeIdToShow = {setRecipeIdToShow}
       />
 
       <div className="mt-5 container">
@@ -49,7 +52,9 @@ function App() {
         )}
         <Results
             noResults={noResults}
-            recipesResults={recipesResults}/>
+            recipesResults={recipesResults}
+            recipeIdToShow = {recipeIdToShow}
+            setRecipeIdToShow = {setRecipeIdToShow}/>
       </div>
     </main>
   );

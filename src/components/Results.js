@@ -5,10 +5,11 @@ import RecipeDetails from "./RecipeDetails";
 const Results = (props) => {
     const {
         noResults,
-        recipesResults
+        recipesResults,
+        recipeIdToShow,
+        setRecipeIdToShow
     } = props;
     let output = [];
-    const [recipeIdToShow, setRecipeIdToShow] = useState("");
 
     if (noResults) {
         output=[]
@@ -57,9 +58,11 @@ const Results = (props) => {
   return (
       <div>
       <div className="row row-cols-md-3">{output}</div>
-          {recipeIdToShow != "" ? <RecipeDetails>
+          {recipeIdToShow !== "" ?
+              <RecipeDetails>
               recipeIdToShow = {recipeIdToShow}
-          </RecipeDetails>: ""}
+          </RecipeDetails>
+              : ""}
 
       </div>
   );
