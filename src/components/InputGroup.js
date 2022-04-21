@@ -15,29 +15,26 @@ const InputGroup = (props) => {
     setLoading
   } = props;
 
-  // Add individual ingredient
+ // Add input ingredient to the list of ingredients to include
   function addIngredient(ingredient) {
     setIncludeIngredientsValue((currentIngredients) => {
       return [
         {
-          ingredient: ingredient
+          ingredient_name: ingredient,
+          created: Date.now()
         },
         ...currentIngredients,
       ];
     });
   }
 
-  // Add input ingredient to the list of ingredients to include
-  function addIngredient(ingredient) {
-    setIncludeIngredientsValue((currentIngredients) => {
-      return [ingredient,
-        ...currentIngredients]
-    })
-  }
-
-  // Remove individual ingredient
-  function removeIngredient(ingredient) {
-
+  function removeIngredient(created) {
+    setIncludeIngredientsValue((previousIngredients) => {
+      const withItemRemoved = previousIngredients.filter((item) => {
+        return item.created !== created
+      });
+      return withItemRemoved;
+    });
   }
 
   // Clear all ingredients
@@ -52,15 +49,21 @@ const InputGroup = (props) => {
   // Fetch rhymes from API using the input values
   const SearchRecipes = () => {
     setLoading(true)
-    fetch(
+    let ingredientNames = []
+
+    for (let item in includeIngredientsValue) {
+      ingredientNames.push(item. ingredient_name)
+  }
+
+      // Fix search query so it searches only ingredient names (not keys)
+      fetch(
       `https://api.spoonacular.com/recipes/complexSearch?${new URLSearchParams({
-        includeIngredients: includeIngredientsValue.join(','),
-        apiKey: '122cfed9ea8e4f779d5e8580866a6e86',
+        includeIngredients: ingredientNames.join(','),
+        apiKey: '190a82499347437ab65f0ebbd7f1680e',
       }).toString()}`
     )
       .then((response) => response.json())
       .then((json) => {
-        console.log("API Results:")
         console.log(json)
         setLoading(false)
         // Check to see if there are results
@@ -125,22 +128,22 @@ const InputGroup = (props) => {
       </div>
 
       { typeof(includeIngredientsValue) == 'object' ?
-          includeIngredientsValue.map((ingredient, index) =>
+          includeIngredientsValue.map((ingredient) =>
             <PantryItems
-                ingredient={ingredient}
-                key={index}
+                key={ingredient.created}
+                ingredient={ingredient.ingredient_name}
                 includeIngredientsValue={includeIngredientsValue}
                 setIncludeIngredientsValue={setIncludeIngredientsValue}
+                remove={() => removeIngredient(ingredient.created)}
             />
         )
           :<PantryItems
               ingredient={ingredient}
               includeIngredientsValue={includeIngredientsValue}
               setIncludeIngredientsValue={setIncludeIngredientsValue}
+              remove={() => removeIngredient(ingredient)}
           />
       }
-
-
 
       <div className="d-flex flex-row-reverse bd-highlight">
         <div className="p-2 bd-highlight">

@@ -1,26 +1,23 @@
 import React from "react";
 import "./PantryItems.css";
+import removeIngredient from "./InputGroup.js"
+
 
 const PantryItems = (props) => {
-  const { ingredient, includeIngredientsValue, setIncludeIngredientsValue } = props;
-
-
+  const { ingredient,
+      index,
+        remove} = props;
 
   return (
-    <div className="p-2 d-inline-flex flex-wrap">
+    <div className="p-2 d-inline-flex flex-wrap" key={index}>
       <div
-        key={Math.random()}
         className="d-flex justify-content-start ingredient-tag"
         >
         {ingredient}{" "}
         <button
           type="button"
-          onClick= {() => {
+          onClick={()=>remove(ingredient, index)}
             // includeIngredientsValue.filter((ingredient) => ingredient.name !== includeIngredientsValue);
-            setIncludeIngredientsValue((includeIngredientsValue) => {
-              return includeIngredientsValue.pop([ingredient]);
-            });
-        }}
           className="d-flex justify-content-end btn-close pantry-close"
           aria-label="Close"
           >
