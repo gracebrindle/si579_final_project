@@ -7,7 +7,7 @@ const PantryItems = (props) => {
   const { ingredient,
       index,
         remove} = props;
-
+console.log(ingredient)
   return (
     <div className="p-2 d-inline-flex flex-wrap" key={index}>
       <div
@@ -17,7 +17,6 @@ const PantryItems = (props) => {
         <button
           type="button"
           onClick={()=>remove(ingredient, index)}
-            // includeIngredientsValue.filter((ingredient) => ingredient.name !== includeIngredientsValue);
           className="d-flex justify-content-end btn-close pantry-close"
           aria-label="Close"
           >

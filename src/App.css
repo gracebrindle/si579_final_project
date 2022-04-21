@@ -18,3 +18,19 @@
 h5 {
   color: #ED6C5B;
 }
+
+.form-control {
+  padding: revert;
+}
+
+.btn-add {
+  border: 2px solid #ed6c5b;
+  border-radius: 20rem;
+  background-color: white;
+  color: #6c757d;
+}
+
+.btn-add:hover {
+  background-color: #ed6c5b;
+  color: #ffffff;
+}
