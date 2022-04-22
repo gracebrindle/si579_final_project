@@ -114,7 +114,6 @@ const InputGroup = (props) => {
           const options = items.map((i) => ({
             name: i.name,
           }));
-
           setOptions(options);
           setIsLoading(false);
         }
