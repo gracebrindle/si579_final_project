@@ -16,8 +16,8 @@ const InputGroup = (props) => {
     setRecipesResults,
     setNoResults,
     setLoading,
-    setRecipeIdToShow,
-    recipeIdToShow,
+      setRecipeIdToShow,
+      recipeIdToShow
   } = props;
 
   // Add input ingredient to the list of ingredients to include
@@ -52,10 +52,11 @@ const InputGroup = (props) => {
 
   // Fetch rhymes from API using the input values
   const SearchRecipes = () => {
+    setLoading(true)
+    setRecipeIdToShow("")
+    let ingredientNames = []
     setLoading(true);
-    setRecipeIdToShow("");
     let ingredientNames = [];
-    setLoading(true);
 
     for (let item in includeIngredientsValue) {
       ingredientNames.push(item.ingredient_name);
@@ -89,7 +90,8 @@ const InputGroup = (props) => {
     }
   };
 
-// API request for autocomplete ingridient search
+  const SEARCH_URI = "https://api.spoonacular.com/recipes/autocomplete";
+
   const [isLoading, setIsLoading] = useState(false);
   const [options, setOptions] = useState([]);
 
@@ -105,12 +107,14 @@ const InputGroup = (props) => {
         }
       ).toString()}`
     )
+      // fetch(`${SEARCH_URI}?number=10&query=${query}`)
       .then((response) => response.json())
       .then((items) => {
         if (items && items.length) {
           const options = items.map((i) => ({
             name: i.name,
           }));
+
           setOptions(options);
           setIsLoading(false);
         }
@@ -132,11 +136,7 @@ const InputGroup = (props) => {
                 setIngredient(e[0].name);
               }
             }}
-            onKeyDown={(e) => {
-              if (e && e.length) {
-                keyDownHandler();
-              }
-            }}
+            onKeyDown={keyDownHandler}
             type="text"
             placeholder="Find ingredient"
             id="auto-complete"
@@ -148,12 +148,7 @@ const InputGroup = (props) => {
             options={options}
             renderMenuItemChildren={(option, props) => (
               <Fragment>
-                <button
-                  className="btn-add"
-                  onClick={() => addIngredient(ingredient)}
-                >
-                  Add
-                </button>
+                <button className="btn-add" onClick={() => addIngredient(ingredient)}>Add</button>
                 <span> {option.name}</span>
               </Fragment>
             )}
@@ -162,68 +157,64 @@ const InputGroup = (props) => {
           <button
             type="button"
             className="btn btn-primary"
-            onClick={(e) => {
-              if (e && e.length) {
-                addIngredient(ingredient);
-              }
-            }}
+            onClick={() => addIngredient(ingredient)}
           >
             Add Ingredient
           </button>
         </div>
       </div>
-      {includeIngredientsValue.length != 0 ? (
-        <div className="pantry-items">
-          <div className="p-2 d-flex bd-highlight">
-            <div className="me-auto bd-highlight">
-              <h5>Pantry Items</h5>
-            </div>
-          </div>
-
-          {typeof includeIngredientsValue == "object" ? (
-            includeIngredientsValue.map((ingredient) => (
-              <PantryItems
-                key={ingredient.created}
-                ingredient={ingredient.ingredient_name}
-                includeIngredientsValue={includeIngredientsValue}
-                setIncludeIngredientsValue={setIncludeIngredientsValue}
-                remove={() => removeIngredient(ingredient.created)}
-              />
-            ))
-          ) : (
-            <PantryItems
-              ingredient={ingredient}
-              includeIngredientsValue={includeIngredientsValue}
-              setIncludeIngredientsValue={setIncludeIngredientsValue}
-              remove={() => removeIngredient(ingredient)}
-            />
-          )}
-
-          <div className="d-flex flex-row-reverse bd-highlight">
-            <div className="p-2 bd-highlight">
-              <button
-                className="btn btn-primary"
-                type="button"
-                onClick={SearchRecipes}
-              >
-                Find Recipes
-              </button>
-            </div>
-
-            <div className="p-2 bd-highlight">
-              <button
-                className="btn btn-outline-secondary"
-                type="button"
-                onClick={clearIngredients}
-              >
-                Reset
-              </button>
-            </div>
+      {includeIngredientsValue.length != 0 ? 
+      <div className="pantry-items">
+        <div className="p-2 d-flex bd-highlight">
+          <div className="me-auto bd-highlight">
+            <h5>Pantry Items</h5>
           </div>
         </div>
-      ) : (
-        ""
-      )}
+
+
+        {typeof includeIngredientsValue == "object" ? (
+          includeIngredientsValue.map((ingredient) => (
+            <PantryItems
+              key={ingredient.created}
+              ingredient={ingredient.ingredient_name}
+              includeIngredientsValue={includeIngredientsValue}
+              setIncludeIngredientsValue={setIncludeIngredientsValue}
+              remove={() => removeIngredient(ingredient.created)}
+            />
+          ))
+        ) : (
+          <PantryItems
+            ingredient={ingredient}
+            includeIngredientsValue={includeIngredientsValue}
+            setIncludeIngredientsValue={setIncludeIngredientsValue}
+            remove={() => removeIngredient(ingredient)}
+          />
+        )}
+
+
+        <div className="d-flex flex-row-reverse bd-highlight">
+          <div className="p-2 bd-highlight">
+            <button
+              className="btn btn-primary"
+              type="button"
+              onClick={SearchRecipes}
+            >
+              Find Recipes
+            </button>
+          </div>
+
+          <div className="p-2 bd-highlight">
+            <button
+              className="btn btn-outline-secondary"
+              type="button"
+              onClick={clearIngredients}
+            >
+              Reset
+            </button>
+          </div>
+        </div>
+      </div>
+: "" }
     </div>
   );
 };
