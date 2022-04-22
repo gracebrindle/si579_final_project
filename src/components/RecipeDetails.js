@@ -29,7 +29,7 @@ const RecipeDetails = (props) => {
                 setRecipeMinutes(json.readyInMinutes);
                 setRecipeServings(json.servings);  //todo display only when not null;
                 setRecipeDiet(json.diets);
-                setRecipeWinePairing(json.winePairing["pairingText"])
+                setRecipeWinePairing(json.winePairing["pairedWines"])
                 setRecipeInstructions(json.instructions);
                 setRecipeDishType(json.dishTypes);
 
@@ -82,7 +82,12 @@ const RecipeDetails = (props) => {
                     <h4>Instructions</h4>
                     <p>{recipeInstructions}</p>
                     <h4>Wine Pairing</h4>
-                    { recipeWinePairing ? <p>{recipeWinePairing}</p>: "No pairing available"}
+                    { recipeWinePairing ?
+                        recipeWinePairing.map((wine) => (
+                            <ul>
+                            <li>{wine}</li>
+                            </ul>
+                        )): "No pairing available"}
 
                 </Modal.Body>
               </Modal>
