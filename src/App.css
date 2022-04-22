@@ -34,3 +34,17 @@ h5 {
   background-color: #ed6c5b;
   color: #ffffff;
 }
+
+.zerostate-removed {
+  height: initial; 
+  display: initial;
+  justify-content: initial;
+  align-items: initial;
+}
+
+.zerostate {
+  height: 100vh; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

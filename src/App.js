@@ -16,22 +16,26 @@ function App() {
 
   return (
     <main>
-      <div className="d-flex justify-content-center logo">
-        <img src={require("./logo.png")} />
-      </div>
+      <div className="zerostate containter">
+        <div className="container">
+          <div className="d-flex justify-content-center logo">
+            <img src={require("./logo.png")} />
+          </div>
 
-      <InputGroup
-        setIngredient={setIngredient}
-        ingredient={ingredient}
-        setIncludeIngredientsValue={setIncludeIngredientsValue}
-        includeIngredientsValue={includeIngredientsValue}
-        setRecipesResults={setRecipesResults}
-        recipesResults={recipesResults}
-        setNoResults={setNoResults}
-        setLoading={setLoading}
-        recipeIdToShow = {recipeIdToShow}
-        setRecipeIdToShow = {setRecipeIdToShow}
-      />
+          <InputGroup
+            setIngredient={setIngredient}
+            ingredient={ingredient}
+            setIncludeIngredientsValue={setIncludeIngredientsValue}
+            includeIngredientsValue={includeIngredientsValue}
+            setRecipesResults={setRecipesResults}
+            recipesResults={recipesResults}
+            setNoResults={setNoResults}
+            setLoading={setLoading}
+            recipeIdToShow={recipeIdToShow}
+            setRecipeIdToShow={setRecipeIdToShow}
+          />
+        </div>
+      </div>
 
       <div className="mt-5 container">
         {loading ? (
@@ -51,10 +55,11 @@ function App() {
           ""
         )}
         <Results
-            noResults={noResults}
-            recipesResults={recipesResults}
-            recipeIdToShow = {recipeIdToShow}
-            setRecipeIdToShow = {setRecipeIdToShow}/>
+          noResults={noResults}
+          recipesResults={recipesResults}
+          recipeIdToShow={recipeIdToShow}
+          setRecipeIdToShow={setRecipeIdToShow}
+        />
       </div>
     </main>
   );
