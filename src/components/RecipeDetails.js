@@ -6,6 +6,14 @@ const RecipeDetails = (props) => {
     const [recipeInfo, setRecipeInfo] = useState([]);
     const [lgShow, setLgShow] = useState(false);
     const [recipeTitle, setRecipeTitle] = useState("");
+    const [recipeImage, setRecipeImage] = useState("");
+    const [recipeMinutes, setRecipeMinutes] = useState("");
+    const [recipeServings, setRecipeServings] = useState("");
+    const [recipeWinePairing, setRecipeWinePairing] = useState("");
+    const [recipeDiet, setRecpieDiet] = useState([]);
+    const [recipeInstructions, setRecepieInstructions] = useState("");
+    const [recipeDishType, setRecipeDishType] = useState([]);
+    const [recipeIngredients, setRecipeIngredients] = useState([]);
 
     const recipeIdToShow = (query) => {
         fetch(
@@ -16,6 +24,19 @@ const RecipeDetails = (props) => {
             .then((response) => response.json())
             .then((json) => {
                 setRecipeTitle(json.title);
+                setRecipeImage(json.image);
+                setRecipeMinutes(json.readyInMinutes);
+                setRecipeServings(json.servings);
+                setRecipeWinePairing(json.winePairing);  //todo display only when not null;
+                setRecpieDiet(json.diets);
+                setRecepieInstructions(json.instructions);
+                setRecipeDishType(json.dishTypes);
+
+                const tempIngredients = [];
+                for (let ingredient of json.extendedIngredients) {
+                    tempIngredients.push(ingredient.name);
+                }
+                setRecipeIngredients(tempIngredients);
                 setLgShow(true);
                 console.log(json)
             });
@@ -37,6 +58,10 @@ const RecipeDetails = (props) => {
                     {recipeTitle}
                   </Modal.Title>
                 </Modal.Header>
+                <img
+                    src={recipeImage}
+                    className="" alt="..."/>
+                
                 <Modal.Body>...</Modal.Body>
               </Modal>
             </>
