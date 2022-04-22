@@ -47,7 +47,10 @@ const Results = (props) => {
                             {/*</p>*/}
                             {/*<p>Ready in ${cooking_time} Minutes</p>*/}
 
-                            <a href="#" className="btn btn-primary" onClick={()=>setRecipeIdToShow(recipe_id)}>View Recipe</a>
+                            {/* <a href="#" className="btn btn-primary" onClick={()=>setRecipeIdToShow(recipe_id)}>View Recipe</a> */}
+                            <RecipeDetails 
+                                recipe_id={recipe_id}
+                            />
                         </div>
                     </div>
                 </div>
@@ -58,11 +61,11 @@ const Results = (props) => {
   return (
       <div>
       <div className="row row-cols-md-3">{output}</div>
-          {recipeIdToShow !== "" ?
+          {/* {recipeIdToShow !== "" ?
               <RecipeDetails>
               recipeIdToShow = {recipeIdToShow}
           </RecipeDetails>
-              : ""}
+              : ""} */}
 
       </div>
   );

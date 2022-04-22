@@ -1,6 +1,5 @@
 import React from "react";
 import "./InputGroup.css";
-import "./PantryItems.js";
 import PantryItems from "./PantryItems";
 import { AsyncTypeahead } from "react-bootstrap-typeahead";
 import "react-bootstrap-typeahead/css/Typeahead.css";
@@ -31,6 +30,7 @@ const InputGroup = (props) => {
         ...currentIngredients,
       ];
     });
+    console.log(includeIngredientsValue);
   }
 
   function removeIngredient(created) {
@@ -58,10 +58,11 @@ const InputGroup = (props) => {
     setLoading(true);
     let ingredientNames = [];
 
-    for (let item in includeIngredientsValue) {
+    for (let item of includeIngredientsValue) {
+      console.log(item)
       ingredientNames.push(item.ingredient_name);
     }
-
+    console.log(ingredientNames)
     // Fix search query so it searches only ingredient names (not keys)
     fetch(
       `https://api.spoonacular.com/recipes/complexSearch?${new URLSearchParams({
@@ -86,7 +87,9 @@ const InputGroup = (props) => {
   // Add ingredient when 'enter' key is pressed
   const keyDownHandler = (e) => {
     if (e.key === "Enter") {
-      addIngredient(ingredient);
+      if (ingredient) {
+        addIngredient(ingredient);
+      }
     }
   };
 
@@ -121,6 +124,8 @@ const InputGroup = (props) => {
       });
   };
 
+  console.log(options)
+
   // Bypass client-side filtering by returning `true`. Results are already
   // filtered by the search endpoint, so no need to do it again.
   const filterBy = () => true;
@@ -133,7 +138,8 @@ const InputGroup = (props) => {
             className="form-control"
             onChange={(e) => {
               if (e && e.length) {
-                setIngredient(e[0].name);
+                {console.log(e); setIngredient(e[0].name);}
+
               }
             }}
             onKeyDown={keyDownHandler}
@@ -148,7 +154,13 @@ const InputGroup = (props) => {
             options={options}
             renderMenuItemChildren={(option, props) => (
               <Fragment>
-                <button className="btn-add" onClick={() => addIngredient(ingredient)}>Add</button>
+                <button
+                  className="btn-add"
+                  onClick={() => {console.log(option.name);addIngredient(option.name)}}
+                >
+                  Add
+                </button>
+
                 <span> {option.name}</span>
               </Fragment>
             )}
@@ -157,7 +169,12 @@ const InputGroup = (props) => {
           <button
             type="button"
             className="btn btn-primary"
-            onClick={() => addIngredient(ingredient)}
+            onClick={() => {
+              if (ingredient) {
+                addIngredient(ingredient);
+              }
+            }}
+
           >
             Add Ingredient
           </button>
@@ -171,9 +188,28 @@ const InputGroup = (props) => {
           </div>
         </div>
 
+          
+            {includeIngredientsValue.map((ingredient) => (
+              <PantryItems
+                key={ingredient.created}
+                ingredient={ingredient.ingredient_name}
+                includeIngredientsValue={includeIngredientsValue}
+                setIncludeIngredientsValue={setIncludeIngredientsValue}
+                remove={() => removeIngredient(ingredient.created)}
+              />
+            ))}
 
-        {typeof includeIngredientsValue == "object" ? (
-          includeIngredientsValue.map((ingredient) => (
+          {/* {typeof includeIngredientsValue == "object" ? (
+            includeIngredientsValue.map((ingredient) => (
+              <PantryItems
+                key={ingredient.created}
+                ingredient={ingredient.ingredient_name}
+                includeIngredientsValue={includeIngredientsValue}
+                setIncludeIngredientsValue={setIncludeIngredientsValue}
+                remove={() => removeIngredient(ingredient.created)}
+              />
+            ))
+          ) : (
             <PantryItems
               key={ingredient.created}
               ingredient={ingredient.ingredient_name}
@@ -181,36 +217,29 @@ const InputGroup = (props) => {
               setIncludeIngredientsValue={setIncludeIngredientsValue}
               remove={() => removeIngredient(ingredient.created)}
             />
-          ))
-        ) : (
-          <PantryItems
-            ingredient={ingredient}
-            includeIngredientsValue={includeIngredientsValue}
-            setIncludeIngredientsValue={setIncludeIngredientsValue}
-            remove={() => removeIngredient(ingredient)}
-          />
-        )}
+          )} */}
 
+          <div className="d-flex flex-row-reverse bd-highlight">
+            <div className="p-2 bd-highlight">
+              <button
+                className="btn btn-primary"
+                type="button"
+                onClick={SearchRecipes}
+              >
+                Find Recipes
+              </button>
+            </div>
 
-        <div className="d-flex flex-row-reverse bd-highlight">
-          <div className="p-2 bd-highlight">
-            <button
-              className="btn btn-primary"
-              type="button"
-              onClick={SearchRecipes}
-            >
-              Find Recipes
-            </button>
-          </div>
+            <div className="p-2 bd-highlight">
+              <button
+                className="btn btn-outline-secondary"
+                type="button"
+                onClick={clearIngredients}
+              >
+                Reset
+              </button>
+            </div>
 
-          <div className="p-2 bd-highlight">
-            <button
-              className="btn btn-outline-secondary"
-              type="button"
-              onClick={clearIngredients}
-            >
-              Reset
-            </button>
           </div>
         </div>
       </div>
