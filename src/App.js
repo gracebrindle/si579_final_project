@@ -16,7 +16,7 @@ function App() {
 
   return (
     <main>
-      <div className="zerostate containter">
+      <div className={noResults == true ? "zerostate containter"  : "zerostate-removed containter"}>
         <div className="container">
           <div className="d-flex justify-content-center logo">
             <img src={require("./logo.png")} />
@@ -37,7 +37,7 @@ function App() {
         </div>
       </div>
 
-      {noResults == false ? 
+      {noResults == false ?
       <div className="mt-5 container">
         {loading ? (
           <div className="row row-cols-md-3">
