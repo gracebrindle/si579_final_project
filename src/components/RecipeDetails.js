@@ -60,7 +60,9 @@ const RecipeDetails = (props) => {
                   </Modal.Title>
                 </Modal.Header>
                   <div className="p-2 d-inline-flex flex-wrap">
-                    <div className="m-2 solid-tag">{recipeDishType.join(', ')}</div>
+                      {recipeDishType.map((dishType) => (
+                          <div className="m-2 solid-tag">{dishType}</div>
+                      ))}
                     <div className="m-2 d-inline-flex outline-tag">{recipeMinutes} minutes</div>
                     <div className="m-2 outline-tag">{recipeServings} serving(s)</div>
                   </div>
@@ -80,7 +82,8 @@ const RecipeDetails = (props) => {
                     <h4>Instructions</h4>
                     <p>{recipeInstructions}</p>
                     <h4>Wine Pairing</h4>
-                    <p>{recipeWinePairing}</p>
+                    { recipeWinePairing ? <p>{recipeWinePairing}</p>: "No pairing available"}
+
                 </Modal.Body>
               </Modal>
             </>
