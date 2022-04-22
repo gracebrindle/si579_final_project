@@ -1,6 +1,5 @@
 import React from "react";
 import "./InputGroup.css";
-import "./PantryItems.js";
 import PantryItems from "./PantryItems";
 import { AsyncTypeahead } from "react-bootstrap-typeahead";
 import "react-bootstrap-typeahead/css/Typeahead.css";
@@ -31,6 +30,7 @@ const InputGroup = (props) => {
         ...currentIngredients,
       ];
     });
+    console.log(includeIngredientsValue);
   }
 
   function removeIngredient(created) {
@@ -57,10 +57,11 @@ const InputGroup = (props) => {
     let ingredientNames = [];
     setLoading(true);
 
-    for (let item in includeIngredientsValue) {
+    for (let item of includeIngredientsValue) {
+      console.log(item)
       ingredientNames.push(item.ingredient_name);
     }
-
+    console.log(ingredientNames)
     // Fix search query so it searches only ingredient names (not keys)
     fetch(
       `https://api.spoonacular.com/recipes/complexSearch?${new URLSearchParams({
@@ -117,6 +118,8 @@ const InputGroup = (props) => {
       });
   };
 
+  console.log(options)
+
   // Bypass client-side filtering by returning `true`. Results are already
   // filtered by the search endpoint, so no need to do it again.
   const filterBy = () => true;
@@ -132,11 +135,7 @@ const InputGroup = (props) => {
                 setIngredient(e[0].name);
               }
             }}
-            onKeyDown={(e) => {
-              if (e && e.length) {
-                keyDownHandler();
-              }
-            }}
+            onKeyDown={keyDownHandler}
             type="text"
             placeholder="Find ingredient"
             id="auto-complete"
@@ -180,6 +179,7 @@ const InputGroup = (props) => {
             </div>
           </div>
 
+{/* first input just a string only then assigns an object with array */}
           {typeof includeIngredientsValue == "object" ? (
             includeIngredientsValue.map((ingredient) => (
               <PantryItems
