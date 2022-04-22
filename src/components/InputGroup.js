@@ -156,7 +156,11 @@ const InputGroup = (props) => {
           <button
             type="button"
             className="btn btn-primary"
-            onClick={() => addIngredient(ingredient)}
+            onClick={(e) => {
+              if (e && e.length) {
+                addIngredient(ingredient);
+              }
+            }}
           >
             Add Ingredient
           </button>
