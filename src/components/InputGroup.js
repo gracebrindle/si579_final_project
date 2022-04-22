@@ -135,7 +135,11 @@ const InputGroup = (props) => {
                 setIngredient(e[0].name);
               }
             }}
-            onKeyDown={keyDownHandler}
+            onKeyDown={(e) => {
+              if (e && e.length) {
+                keyDownHandler();
+              }
+            }}
             type="text"
             placeholder="Find ingredient"
             id="auto-complete"
