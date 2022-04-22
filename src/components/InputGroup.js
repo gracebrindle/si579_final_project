@@ -134,7 +134,7 @@ const InputGroup = (props) => {
             className="form-control"
             onChange={(e) => {
               if (e && e.length) {
-                setIngredient(e[0].name);
+                {console.log(e); setIngredient(e[0].name);}
               }
             }}
             onKeyDown={keyDownHandler}

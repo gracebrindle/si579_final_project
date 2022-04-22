@@ -1,8 +1,11 @@
 import React, {useState} from "react";
+import { Button, Modal } from 'react-bootstrap';
+
 
 const RecipeDetails = (props) => {
     const {recipeIdToShow} = props
     const [recipeInfo, setRecipeInfo] = useState([]);
+    const [lgShow, setLgShow] = useState(false);
 
     console.log(recipeIdToShow)
 
@@ -17,11 +20,25 @@ const RecipeDetails = (props) => {
         //         console.log(recipeInfo)
         //     });
 
-        return(
-            <div>
-                <p>recipe details</p>
-            </div>
-        )
-    }
+        return (
+            <>
+              <Button  className="btn btn-primary" onClick={() => setLgShow(true)}>View Recipe</Button>
+              <Modal
+                size="lg"
+                animation={false}
+                show={lgShow}
+                onHide={() => setLgShow(false)}
+                aria-labelledby="example-modal-sizes-title-lg"
+              >
+                <Modal.Header closeButton>
+                  <Modal.Title id="example-modal-sizes-title-lg">
+                    Large Modal
+                  </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>...</Modal.Body>
+              </Modal>
+            </>
+          );
+        }
 
-export default RecipeDetails
+export default RecipeDetails;
