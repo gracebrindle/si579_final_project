@@ -1,28 +1,48 @@
 .recipe-img {
-    height: 25vw;
+  height: 100%;
 }
 
 .outline-tag {
-    border: 2px solid #ed6c5b;
-    border-radius: 50rem;
-    background-color: white;
-    color: #6c757d;
-    padding: 4px;
-    padding-left: 8px;
-    padding-right: 8px;
-    font-weight: 500;
-    font-size: 1rem;
-    cursor: default;
-  }
-  
+  border: 2px solid #ed6c5b;
+  border-radius: 50rem;
+  background-color: white;
+  color: #6c757d;
+  padding: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+  font-weight: 500;
+  font-size: 1.25rem;
+  cursor: default;
+}
+
 .solid-tag {
-    background-color: #ed6c5b;
-    color: #ffffff;
-    border-radius: 50rem;
-    padding: 4px;
-    padding-left: 8px;
-    padding-right: 8px;
-    font-weight: 500;
-    font-size: 1rem;
-    cursor: default;
-  }
+  background-color: #ed6c5b;
+  color: #ffffff;
+  border-radius: 50rem;
+  padding: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+  font-weight: 500;
+  font-size: 1.25rem;
+  cursor: default;
+}
+
+P {
+    font-size: 1.25rem;
+}
+
+.modal-dialog.modal-custom {
+    max-width: 600px;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.modal-body li {
+    margin-left: .5rem;
+    margin-bottom: .25rem;
+    list-style-type: none;
+    font-size: 1.25rem;
+}
+

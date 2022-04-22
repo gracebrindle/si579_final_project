@@ -5,7 +5,7 @@ import "./RecipeDetails.css";
 const RecipeDetails = (props) => {
     const {recipe_id} = props;
     const [recipeInfo, setRecipeInfo] = useState([]);
-    const [lgShow, setLgShow] = useState(false);
+    const [show, setShow] = useState(false);
     const [recipeTitle, setRecipeTitle] = useState("");
     const [recipeImage, setRecipeImage] = useState("");
     const [recipeMinutes, setRecipeMinutes] = useState("");
@@ -39,7 +39,7 @@ const RecipeDetails = (props) => {
                 }
                 setRecipeIngredients(tempIngredients);
 
-                setLgShow(true);
+                setShow(true);
                 console.log(json)
             });
         }
@@ -48,10 +48,10 @@ const RecipeDetails = (props) => {
             <>
               <Button  className="btn btn-primary" onClick={() => {recipeIdToShow(recipe_id)}}>View Recipe</Button>
               <Modal
-                size="lg"
                 animation={false}
-                show={lgShow}
-                onHide={() => setLgShow(false)}
+                show={show}
+                dialogClassName="modal-custom"
+                onHide={() => setShow(false)}
                 aria-labelledby="example-modal-sizes-title-lg"
               >
                 <Modal.Header closeButton>
@@ -68,18 +68,18 @@ const RecipeDetails = (props) => {
                     src={recipeImage}
                     className="recipe-img" alt="..."
                 />
-                
+
                 <Modal.Body>
                     <p>Compatible with the following diets: {recipeDiet.join(', ')}</p>
-                    <h4>Ingredients</h4>
-                    <ul>
+                    <h2>Ingredients</h2>
+                    <li>
                     {recipeIngredients.map((ingredient) => (
                         <li>{ingredient}</li>
                     ))}
-                    </ul>
-                    <h4>Instructions</h4>
+                    </li>
+                    <h2>Instructions</h2>
                     <p>{recipeInstructions}</p>
-                    <h4>Wine Pairing</h4>
+                    <h2>Wine Pairing</h2>
                     <p>{recipeWinePairing}</p>
                 </Modal.Body>
               </Modal>
