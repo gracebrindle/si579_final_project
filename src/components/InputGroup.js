@@ -107,7 +107,6 @@ const InputGroup = (props) => {
         }
       ).toString()}`
     )
-      // fetch(`${SEARCH_URI}?number=10&query=${query}`)
       .then((response) => response.json())
       .then((items) => {
         if (items && items.length) {
