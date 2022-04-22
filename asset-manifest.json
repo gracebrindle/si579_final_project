@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/static/css/main.a0c5b4fb.css",
-    "main.js": "/static/js/main.eb74d7f2.js",
-    "static/js/787.770856bb.chunk.js": "/static/js/787.770856bb.chunk.js",
-    "static/media/glyphicons-halflings-regular.svg": "/static/media/glyphicons-halflings-regular.060b2710bdbbe3dfe48b.svg",
-    "static/media/glyphicons-halflings-regular.ttf": "/static/media/glyphicons-halflings-regular.4692b9ec53fd5972caa2.ttf",
-    "static/media/glyphicons-halflings-regular.woff": "/static/media/glyphicons-halflings-regular.82b1212e45a2bc35dd73.woff",
-    "static/media/glyphicons-halflings-regular.eot": "/static/media/glyphicons-halflings-regular.5be1347c682810f199c7.eot",
-    "static/media/glyphicons-halflings-regular.woff2": "/static/media/glyphicons-halflings-regular.be810be3a3e14c682a25.woff2",
-    "index.html": "/index.html",
-    "main.a0c5b4fb.css.map": "/static/css/main.a0c5b4fb.css.map",
-    "main.eb74d7f2.js.map": "/static/js/main.eb74d7f2.js.map",
-    "787.770856bb.chunk.js.map": "/static/js/787.770856bb.chunk.js.map"
+    "main.css": "/si579_final_project/static/css/main.c7ca1db4.css",
+    "main.js": "/si579_final_project/static/js/main.aa1efaf0.js",
+    "static/js/787.770856bb.chunk.js": "/si579_final_project/static/js/787.770856bb.chunk.js",
+    "static/media/glyphicons-halflings-regular.svg": "/si579_final_project/static/media/glyphicons-halflings-regular.060b2710bdbbe3dfe48b.svg",
+    "static/media/glyphicons-halflings-regular.ttf": "/si579_final_project/static/media/glyphicons-halflings-regular.4692b9ec53fd5972caa2.ttf",
+    "static/media/glyphicons-halflings-regular.woff": "/si579_final_project/static/media/glyphicons-halflings-regular.82b1212e45a2bc35dd73.woff",
+    "static/media/glyphicons-halflings-regular.eot": "/si579_final_project/static/media/glyphicons-halflings-regular.5be1347c682810f199c7.eot",
+    "static/media/glyphicons-halflings-regular.woff2": "/si579_final_project/static/media/glyphicons-halflings-regular.be810be3a3e14c682a25.woff2",
+    "index.html": "/si579_final_project/index.html",
+    "main.c7ca1db4.css.map": "/si579_final_project/static/css/main.c7ca1db4.css.map",
+    "main.aa1efaf0.js.map": "/si579_final_project/static/js/main.aa1efaf0.js.map",
+    "787.770856bb.chunk.js.map": "/si579_final_project/static/js/787.770856bb.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a0c5b4fb.css",
-    "static/js/main.eb74d7f2.js"
+    "static/css/main.c7ca1db4.css",
+    "static/js/main.aa1efaf0.js"
   ]
 }
