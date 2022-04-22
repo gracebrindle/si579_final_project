@@ -86,7 +86,9 @@ const InputGroup = (props) => {
   // Add ingredient when 'enter' key is pressed
   const keyDownHandler = (e) => {
     if (e.key === "Enter") {
-      addIngredient(ingredient);
+      if (ingredient) {
+        addIngredient(ingredient);
+      }
     }
   };
 
@@ -149,7 +151,7 @@ const InputGroup = (props) => {
               <Fragment>
                 <button
                   className="btn-add"
-                  onClick={() => addIngredient(ingredient)}
+                  onClick={() => {console.log(option.name);addIngredient(option.name)}}
                 >
                   Add
                 </button>
@@ -161,8 +163,8 @@ const InputGroup = (props) => {
           <button
             type="button"
             className="btn btn-primary"
-            onClick={(e) => {
-              if (e && e.length) {
+            onClick={() => {
+              if (ingredient) {
                 addIngredient(ingredient);
               }
             }}
@@ -179,8 +181,18 @@ const InputGroup = (props) => {
             </div>
           </div>
 
-{/* first input just a string only then assigns an object with array */}
-          {typeof includeIngredientsValue == "object" ? (
+          
+            {includeIngredientsValue.map((ingredient) => (
+              <PantryItems
+                key={ingredient.created}
+                ingredient={ingredient.ingredient_name}
+                includeIngredientsValue={includeIngredientsValue}
+                setIncludeIngredientsValue={setIncludeIngredientsValue}
+                remove={() => removeIngredient(ingredient.created)}
+              />
+            ))}
+
+          {/* {typeof includeIngredientsValue == "object" ? (
             includeIngredientsValue.map((ingredient) => (
               <PantryItems
                 key={ingredient.created}
@@ -197,7 +209,7 @@ const InputGroup = (props) => {
               setIncludeIngredientsValue={setIncludeIngredientsValue}
               remove={() => removeIngredient(ingredient)}
             />
-          )}
+          )} */}
 
           <div className="d-flex flex-row-reverse bd-highlight">
             <div className="p-2 bd-highlight">
