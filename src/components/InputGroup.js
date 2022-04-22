@@ -54,7 +54,6 @@ const InputGroup = (props) => {
   const SearchRecipes = () => {
     setLoading(true)
     setRecipeIdToShow("")
-    let ingredientNames = []
     setLoading(true);
     let ingredientNames = [];
 
@@ -242,8 +241,8 @@ const InputGroup = (props) => {
 
           </div>
         </div>
-      </div>
-: "" }
+
+        : "" }
     </div>
   );
 };

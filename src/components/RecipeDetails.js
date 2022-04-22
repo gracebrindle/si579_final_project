@@ -10,8 +10,8 @@ const RecipeDetails = (props) => {
     const [recipeMinutes, setRecipeMinutes] = useState("");
     const [recipeServings, setRecipeServings] = useState("");
     const [recipeWinePairing, setRecipeWinePairing] = useState("");
-    const [recipeDiet, setRecpieDiet] = useState([]);
-    const [recipeInstructions, setRecepieInstructions] = useState("");
+    const [recipeDiet, setRecipeDiet] = useState([]);
+    const [recipeInstructions, setRecipeInstructions] = useState("");
     const [recipeDishType, setRecipeDishType] = useState([]);
     const [recipeIngredients, setRecipeIngredients] = useState([]);
 
@@ -26,10 +26,10 @@ const RecipeDetails = (props) => {
                 setRecipeTitle(json.title);
                 setRecipeImage(json.image);
                 setRecipeMinutes(json.readyInMinutes);
-                setRecipeServings(json.servings);
-                setRecipeWinePairing(json.winePairing);  //todo display only when not null;
-                setRecpieDiet(json.diets);
-                setRecepieInstructions(json.instructions);
+                setRecipeServings(json.servings);  //todo display only when not null;
+                setRecipeDiet(json.diets);
+                setRecipeWinePairing(json.winePairing["pairingText"])
+                setRecipeInstructions(json.instructions);
                 setRecipeDishType(json.dishTypes);
 
                 const tempIngredients = [];
@@ -37,10 +37,10 @@ const RecipeDetails = (props) => {
                     tempIngredients.push(ingredient.name);
                 }
                 setRecipeIngredients(tempIngredients);
+
                 setLgShow(true);
                 console.log(json)
             });
-
         }
 
         return (
@@ -62,7 +62,22 @@ const RecipeDetails = (props) => {
                     src={recipeImage}
                     className="" alt="..."/>
                 
-                <Modal.Body>...</Modal.Body>
+                <Modal.Body>
+                    <p>Dish Type: {recipeDishType.join(', ')}</p>
+                    <p>Ready in {recipeMinutes} minutes</p>
+                    <p>Makes {recipeServings} serving(s)</p>
+                    <p>Compatible with the following diets: {recipeDiet.join(', ')}</p>
+                    <h2>Ingredients</h2>
+                    <ul>
+                    {recipeIngredients.map((ingredient) => (
+                        <li>{ingredient}</li>
+                    ))}
+                    </ul>
+                    <h2>Instructions</h2>
+                    {recipeInstructions}
+                    <h2>Wine Pairing</h2>
+                    <p>{recipeWinePairing}</p>
+                </Modal.Body>
               </Modal>
             </>
           );
