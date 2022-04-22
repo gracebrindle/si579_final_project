@@ -15,8 +15,8 @@ const InputGroup = (props) => {
     setRecipesResults,
     setNoResults,
     setLoading,
-    setRecipeIdToShow,
-    recipeIdToShow,
+      setRecipeIdToShow,
+      recipeIdToShow
   } = props;
 
   // Add input ingredient to the list of ingredients to include
@@ -52,10 +52,11 @@ const InputGroup = (props) => {
 
   // Fetch rhymes from API using the input values
   const SearchRecipes = () => {
+    setLoading(true)
+    setRecipeIdToShow("")
+    let ingredientNames = []
     setLoading(true);
-    setRecipeIdToShow("");
     let ingredientNames = [];
-    setLoading(true);
 
     for (let item of includeIngredientsValue) {
       console.log(item)
@@ -92,7 +93,8 @@ const InputGroup = (props) => {
     }
   };
 
-// API request for autocomplete ingridient search
+  const SEARCH_URI = "https://api.spoonacular.com/recipes/autocomplete";
+
   const [isLoading, setIsLoading] = useState(false);
   const [options, setOptions] = useState([]);
 
@@ -108,12 +110,14 @@ const InputGroup = (props) => {
         }
       ).toString()}`
     )
+      // fetch(`${SEARCH_URI}?number=10&query=${query}`)
       .then((response) => response.json())
       .then((items) => {
         if (items && items.length) {
           const options = items.map((i) => ({
             name: i.name,
           }));
+
           setOptions(options);
           setIsLoading(false);
         }
@@ -135,6 +139,7 @@ const InputGroup = (props) => {
             onChange={(e) => {
               if (e && e.length) {
                 {console.log(e); setIngredient(e[0].name);}
+
               }
             }}
             onKeyDown={keyDownHandler}
@@ -155,6 +160,7 @@ const InputGroup = (props) => {
                 >
                   Add
                 </button>
+
                 <span> {option.name}</span>
               </Fragment>
             )}
@@ -168,18 +174,19 @@ const InputGroup = (props) => {
                 addIngredient(ingredient);
               }
             }}
+
           >
             Add Ingredient
           </button>
         </div>
       </div>
-      {includeIngredientsValue.length != 0 ? (
-        <div className="pantry-items">
-          <div className="p-2 d-flex bd-highlight">
-            <div className="me-auto bd-highlight">
-              <h5>Pantry Items</h5>
-            </div>
+      {includeIngredientsValue.length != 0 ? 
+      <div className="pantry-items">
+        <div className="p-2 d-flex bd-highlight">
+          <div className="me-auto bd-highlight">
+            <h5>Pantry Items</h5>
           </div>
+        </div>
 
           
             {includeIngredientsValue.map((ingredient) => (
@@ -204,10 +211,11 @@ const InputGroup = (props) => {
             ))
           ) : (
             <PantryItems
-              ingredient={ingredient}
+              key={ingredient.created}
+              ingredient={ingredient.ingredient_name}
               includeIngredientsValue={includeIngredientsValue}
               setIncludeIngredientsValue={setIncludeIngredientsValue}
-              remove={() => removeIngredient(ingredient)}
+              remove={() => removeIngredient(ingredient.created)}
             />
           )} */}
 
@@ -231,11 +239,11 @@ const InputGroup = (props) => {
                 Reset
               </button>
             </div>
+
           </div>
         </div>
-      ) : (
-        ""
-      )}
+      </div>
+: "" }
     </div>
   );
 };

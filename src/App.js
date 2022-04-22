@@ -16,61 +16,46 @@ function App() {
 
   return (
     <main>
-      <div
-        className={
-          noResults == true
-            ? "zerostate containter"
-            : "zerostate-removed containter"
-        }
-      >
-        <div className="container">
-          <div className="d-flex justify-content-center logo">
-            <img src={require("./logo.png")} />
-          </div>
-
-          <InputGroup
-            setIngredient={setIngredient}
-            ingredient={ingredient}
-            setIncludeIngredientsValue={setIncludeIngredientsValue}
-            includeIngredientsValue={includeIngredientsValue}
-            setRecipesResults={setRecipesResults}
-            recipesResults={recipesResults}
-            setNoResults={setNoResults}
-            setLoading={setLoading}
-            recipeIdToShow={recipeIdToShow}
-            setRecipeIdToShow={setRecipeIdToShow}
-          />
-        </div>
+      <div className="d-flex justify-content-center logo">
+        <img src={require("./logo.png")} />
       </div>
 
-      {noResults == false ? (
-        <div className="mt-5 container">
-          {loading ? (
-            <div className="row row-cols-md-3">
-              <CardSkeleton />
-              <CardSkeleton />
-              <CardSkeleton />
-              <CardSkeleton />
-              <CardSkeleton />
-              <CardSkeleton />
-              <CardSkeleton />
-              <CardSkeleton />
-              <CardSkeleton />
-              <CardSkeleton />
-            </div>
-          ) : (
-            ""
-          )}
-          <Results
+      <InputGroup
+        setIngredient={setIngredient}
+        ingredient={ingredient}
+        setIncludeIngredientsValue={setIncludeIngredientsValue}
+        includeIngredientsValue={includeIngredientsValue}
+        setRecipesResults={setRecipesResults}
+        recipesResults={recipesResults}
+        setNoResults={setNoResults}
+        setLoading={setLoading}
+        recipeIdToShow = {recipeIdToShow}
+        setRecipeIdToShow = {setRecipeIdToShow}
+      />
+
+      <div className="mt-5 container">
+        {loading ? (
+          <div className="row row-cols-md-3">
+            <CardSkeleton />
+            <CardSkeleton />
+            <CardSkeleton />
+            <CardSkeleton />
+            <CardSkeleton />
+            <CardSkeleton />
+            <CardSkeleton />
+            <CardSkeleton />
+            <CardSkeleton />
+            <CardSkeleton />
+          </div>
+        ) : (
+          ""
+        )}
+        <Results
             noResults={noResults}
             recipesResults={recipesResults}
-            recipeIdToShow={recipeIdToShow}
-            setRecipeIdToShow={setRecipeIdToShow}
-          />
-        </div>
-      ) : (
-        ""
-      )}
+            recipeIdToShow = {recipeIdToShow}
+            setRecipeIdToShow = {setRecipeIdToShow}/>
+      </div>
     </main>
   );
 }
