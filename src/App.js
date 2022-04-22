@@ -37,6 +37,7 @@ function App() {
         </div>
       </div>
 
+      {noResults == false ? 
       <div className="mt-5 container">
         {loading ? (
           <div className="row row-cols-md-3">
@@ -61,6 +62,7 @@ function App() {
           setRecipeIdToShow={setRecipeIdToShow}
         />
       </div>
+     : "" }
     </main>
   );
 }
