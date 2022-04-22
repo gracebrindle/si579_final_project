@@ -90,8 +90,6 @@ const InputGroup = (props) => {
   };
 
 // API request for autocomplete ingridient search
-  const SEARCH_URI = "https://api.spoonacular.com/recipes/autocomplete";
-
   const [isLoading, setIsLoading] = useState(false);
   const [options, setOptions] = useState([]);
 
