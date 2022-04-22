@@ -27,9 +27,9 @@ const RecipeDetails = (props) => {
                 setRecipeTitle(json.title);
                 setRecipeImage(json.image);
                 setRecipeMinutes(json.readyInMinutes);
-                setRecipeServings(json.servings);  //todo display only when not null;
+                setRecipeServings(json.servings);  
                 setRecipeDiet(json.diets);
-                setRecipeWinePairing(json.winePairing["pairingText"])
+                setRecipeWinePairing(json.winePairing["pairedWines"])
                 setRecipeInstructions(json.instructions);
                 setRecipeDishType(json.dishTypes);
 
@@ -60,7 +60,9 @@ const RecipeDetails = (props) => {
                   </Modal.Title>
                 </Modal.Header>
                   <div className="p-2 d-inline-flex flex-wrap">
-                    <div className="m-2 solid-tag">{recipeDishType.join(', ')}</div>
+                      {recipeDishType.map((dishType) => (
+                          <div className="m-2 solid-tag">{dishType}</div>
+                      ))}
                     <div className="m-2 d-inline-flex outline-tag">{recipeMinutes} minutes</div>
                     <div className="m-2 outline-tag">{recipeServings} serving(s)</div>
                   </div>
@@ -79,8 +81,15 @@ const RecipeDetails = (props) => {
                     </li>
                     <h2>Instructions</h2>
                     <p>{recipeInstructions}</p>
-                    <h2>Wine Pairing</h2>
-                    <p>{recipeWinePairing}</p>
+
+                    <h4>Wine Pairing</h4>
+                    { recipeWinePairing ?
+                        recipeWinePairing.map((wine) => (
+                            <ul>
+                            <li>{wine}</li>
+                            </ul>
+                        )): "No pairing available"}
+
                 </Modal.Body>
               </Modal>
             </>
