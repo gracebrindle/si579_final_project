@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import { Button, Modal } from 'react-bootstrap';
+import "./RecipeDetails.css";
 
 const RecipeDetails = (props) => {
     const {recipe_id} = props;
@@ -58,24 +59,27 @@ const RecipeDetails = (props) => {
                     {recipeTitle}
                   </Modal.Title>
                 </Modal.Header>
+                  <div className="p-2 d-inline-flex flex-wrap">
+                    <div className="m-2 solid-tag">{recipeDishType.join(', ')}</div>
+                    <div className="m-2 d-inline-flex outline-tag">{recipeMinutes} minutes</div>
+                    <div className="m-2 outline-tag">{recipeServings} serving(s)</div>
+                  </div>
                 <img
                     src={recipeImage}
-                    className="" alt="..."/>
+                    className="recipe-img" alt="..."
+                />
                 
                 <Modal.Body>
-                    <p>Dish Type: {recipeDishType.join(', ')}</p>
-                    <p>Ready in {recipeMinutes} minutes</p>
-                    <p>Makes {recipeServings} serving(s)</p>
                     <p>Compatible with the following diets: {recipeDiet.join(', ')}</p>
-                    <h2>Ingredients</h2>
+                    <h4>Ingredients</h4>
                     <ul>
                     {recipeIngredients.map((ingredient) => (
                         <li>{ingredient}</li>
                     ))}
                     </ul>
-                    <h2>Instructions</h2>
-                    {recipeInstructions}
-                    <h2>Wine Pairing</h2>
+                    <h4>Instructions</h4>
+                    <p>{recipeInstructions}</p>
+                    <h4>Wine Pairing</h4>
                     <p>{recipeWinePairing}</p>
                 </Modal.Body>
               </Modal>

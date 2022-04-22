@@ -1,0 +1,28 @@
+.recipe-img {
+    height: 25vw;
+}
+
+.outline-tag {
+    border: 2px solid #ed6c5b;
+    border-radius: 50rem;
+    background-color: white;
+    color: #6c757d;
+    padding: 4px;
+    padding-left: 8px;
+    padding-right: 8px;
+    font-weight: 500;
+    font-size: 1rem;
+    cursor: default;
+  }
+  
+.solid-tag {
+    background-color: #ed6c5b;
+    color: #ffffff;
+    border-radius: 50rem;
+    padding: 4px;
+    padding-left: 8px;
+    padding-right: 8px;
+    font-weight: 500;
+    font-size: 1rem;
+    cursor: default;
+  }
