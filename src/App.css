@@ -36,14 +36,14 @@ h5 {
 }
 
 .zerostate-removed {
-  height: initial; 
+  height: initial;
   display: initial;
   justify-content: initial;
   align-items: initial;
 }
 
 .zerostate {
-  height: 100vh; 
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
