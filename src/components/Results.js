@@ -48,7 +48,9 @@ const Results = (props) => {
                             {/*<p>Ready in ${cooking_time} Minutes</p>*/}
 
                             {/* <a href="#" className="btn btn-primary" onClick={()=>setRecipeIdToShow(recipe_id)}>View Recipe</a> */}
-                            <RecipeDetails />
+                            <RecipeDetails 
+                                recipe_id={recipe_id}
+                            />
                         </div>
                     </div>
                 </div>
