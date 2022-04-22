@@ -27,7 +27,7 @@ const RecipeDetails = (props) => {
                 setRecipeTitle(json.title);
                 setRecipeImage(json.image);
                 setRecipeMinutes(json.readyInMinutes);
-                setRecipeServings(json.servings);  
+                setRecipeServings(json.servings);
                 setRecipeDiet(json.diets);
                 setRecipeWinePairing(json.winePairing["pairedWines"])
                 setRecipeInstructions(json.instructions);
